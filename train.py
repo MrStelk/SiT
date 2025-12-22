@@ -293,15 +293,17 @@ def main(args):
             
             if train_steps % args.sample_every == 0 and train_steps > 0:
                 logger.info("Generating EMA samples...")
-                sample_fn = transport_sampler.sample_ode() # default to ode sampling
-                samples = sample_fn(zs, model_fn, **sample_model_kwargs)[-1]
-                dist.barrier()
+                with torch.no_grad():
+                    sample_fn = transport_sampler.sample_ode() # default to ode sampling
+                    samples = sample_fn(zs, model_fn, **sample_model_kwargs)[-1]
+                    dist.barrier()
 
-                if use_cfg: #remove null samples
-                    samples, _ = samples.chunk(2, dim=0)
-                samples = vae.decode(samples / 0.18215).sample
-                out_samples = torch.zeros((args.global_batch_size, 3, args.image_size, args.image_size), device=device)
-                dist.all_gather_into_tensor(out_samples, samples)
+                    if use_cfg: #remove null samples
+                        samples, _ = samples.chunk(2, dim=0)
+                    samples = vae.decode(samples / 0.18215).sample
+                    out_samples = torch.zeros((args.global_batch_size, 3, args.image_size, args.image_size), device=device)
+                    dist.all_gather_into_tensor(out_samples, samples)
+
                 if args.wandb:
                     wandb_utils.log_image(out_samples, train_steps)
                 logging.info("Generating EMA samples done.")
