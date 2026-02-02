@@ -12,7 +12,7 @@ import os
 pretrained_models = {'SiT-XL-2-256x256.pt'}
 
 
-def find_model(model_name):
+def find_model(model_name, sample=False):
     """
     Finds a pre-trained SiT model, downloading it if necessary. Alternatively, loads a model from a local path.
     """
@@ -20,8 +20,8 @@ def find_model(model_name):
         return download_model(model_name)
     else:  
         assert os.path.isfile(model_name), f'Could not find SiT checkpoint at {model_name}'
-        checkpoint = torch.load(model_name, map_location=lambda storage, loc: storage)
-        if "ema" in checkpoint:  # supports checkpoints from train.py
+        checkpoint = torch.load(model_name, map_location=lambda storage, loc: storage, weights_only=False)        
+        if "ema" in checkpoint and sample:  # supports checkpoints from train.py
             checkpoint = checkpoint["ema"]
         return checkpoint
 

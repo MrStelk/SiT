@@ -1,0 +1,51 @@
+Running on host: cn7.cds.iisc.in
+Loading config from checkpoint: /home/venky/dkarthik/baselines/SiT/results/004-SiT-S-2-Linear-velocity-None/checkpoints/276_0105000.ptLoading config from checkpoint: /home/venky/dkarthik/baselines/SiT/results/004-SiT-S-2-Linear-velocity-None/checkpoints/276_0105000.pt
+
+  Overriding arg: data_path = /home/venky/dkarthik/data/imagenet256_centercrop_vae_latents (Command Line)
+  Resuming arg: results_dir = results
+  Using fixed arg model = SiT-S/2
+  Using fixed arg image_size = 256
+  Using fixed arg num_classes = 100
+  Overriding arg: data_path = /home/venky/dkarthik/data/imagenet256_centercrop_vae_latents (Command Line)  Resuming arg: epochs = 1400
+  Overriding arg: global_batch_size = 950 (Command Line)
+  Resuming arg: global_seed = 0
+
+  Using fixed arg vae = ema
+  Resuming arg: results_dir = results  Overriding arg: num_workers = 8 (Command Line)
+
+  Using fixed arg model = SiT-S/2  Resuming arg: log_every = 100
+
+  Using fixed arg image_size = 256  Resuming arg: ckpt_every = 15000
+
+  Resuming arg: sample_every = 10000  Using fixed arg num_classes = 100
+
+  Resuming arg: epochs = 1400  Resuming arg: cfg_scale = 4.0
+
+  Overriding arg: global_batch_size = 950 (Command Line)  Using fixed arg wandb = True
+
+  Resuming arg: global_seed = 0  Overriding arg: ckpt = /home/venky/dkarthik/baselines/SiT/results/004-SiT-S-2-Linear-velocity-None/checkpoints/276_0105000.pt (Command Line)
+
+  Using fixed arg vae = ema  Resuming arg: mixed_precision = no
+
+  Overriding arg: num_workers = 8 (Command Line)  Resuming arg: path_type = Linear
+
+  Resuming arg: log_every = 100  Using fixed arg prediction = velocity
+
+  Resuming arg: ckpt_every = 15000  Resuming arg: loss_weight = None
+
+  Resuming arg: sample_every = 10000  Resuming arg: sample_eps = None
+
+  Resuming arg: train_eps = None  Resuming arg: cfg_scale = 4.0
+
+  Using fixed arg wandb = True
+  Overriding arg: ckpt = /home/venky/dkarthik/baselines/SiT/results/004-SiT-S-2-Linear-velocity-None/checkpoints/276_0105000.pt (Command Line)
+  Resuming arg: mixed_precision = no
+  Resuming arg: path_type = Linear
+  Using fixed arg prediction = velocity
+  Resuming arg: loss_weight = None
+  Resuming arg: sample_eps = None
+  Resuming arg: train_eps = None
+Starting process: 1, seed=1, world_size=2. Local BS=475
+Starting process: 0, seed=0, world_size=2. Local BS=475
+Resuming training from step: 105000
+Resuming training from step: 105000

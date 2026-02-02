@@ -1,0 +1,51 @@
+Running on host: cn8.cds.iisc.in
+Loading config from checkpoint: /home/venky/dkarthik/baselines/SiT/results/004-SiT-B-2-Linear-velocity-None/checkpoints/0050000.ptLoading config from checkpoint: /home/venky/dkarthik/baselines/SiT/results/004-SiT-B-2-Linear-velocity-None/checkpoints/0050000.pt
+
+  Resuming arg: data_path = /home/venky/dkarthik/data/imagenet/ILSVRC/Data/CLS-LOC/train
+  Resuming arg: results_dir = results
+  Using fixed arg model = SiT-B/2
+  Using fixed arg image_size = 256
+  Using fixed arg num_classes = 100
+  Resuming arg: epochs = 1400
+  Overriding arg: global_batch_size = 340 (Command Line)
+  Resuming arg: global_seed = 0
+  Using fixed arg vae = ema
+  Resuming arg: num_workers = 4
+  Resuming arg: log_every = 100
+  Overriding arg: ckpt_every = 10000 (Command Line)  Resuming arg: data_path = /home/venky/dkarthik/data/imagenet/ILSVRC/Data/CLS-LOC/train
+  Resuming arg: sample_every = 10000
+  Resuming arg: cfg_scale = 4.0
+
+  Using fixed arg wandb = True
+  Resuming arg: results_dir = results  Overriding arg: ckpt = /home/venky/dkarthik/baselines/SiT/results/004-SiT-B-2-Linear-velocity-None/checkpoints/0050000.pt (Command Line)
+
+  Resuming arg: mixed_precision = no  Using fixed arg model = SiT-B/2
+
+  Resuming arg: path_type = Linear  Using fixed arg image_size = 256
+
+  Using fixed arg prediction = velocity  Using fixed arg num_classes = 100
+
+  Resuming arg: loss_weight = None  Resuming arg: epochs = 1400
+
+  Resuming arg: sample_eps = None  Overriding arg: global_batch_size = 340 (Command Line)
+
+  Resuming arg: train_eps = None  Resuming arg: global_seed = 0
+
+  Using fixed arg vae = ema
+  Resuming arg: num_workers = 4
+  Resuming arg: log_every = 100
+  Overriding arg: ckpt_every = 10000 (Command Line)
+  Resuming arg: sample_every = 10000
+  Resuming arg: cfg_scale = 4.0
+  Using fixed arg wandb = True
+  Overriding arg: ckpt = /home/venky/dkarthik/baselines/SiT/results/004-SiT-B-2-Linear-velocity-None/checkpoints/0050000.pt (Command Line)
+  Resuming arg: mixed_precision = no
+  Resuming arg: path_type = Linear
+  Using fixed arg prediction = velocity
+  Resuming arg: loss_weight = None
+  Resuming arg: sample_eps = None
+  Resuming arg: train_eps = None
+Starting process: 1, seed=1, world_size=2.
+Starting process: 0, seed=0, world_size=2.
+Resuming training from step: 50000
+Resuming training from step: 50000

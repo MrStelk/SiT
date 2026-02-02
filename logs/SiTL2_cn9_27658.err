@@ -1,0 +1,542 @@
+The following values were not passed to `accelerate launch` and had defaults used instead:
+	`--num_machines` was set to a value of `1`
+	`--dynamo_backend` was set to a value of `'no'`
+To avoid this warning pass in values for each of the problematic parameters or run `accelerate config`.
+[[34m2026-01-15 18:54:02[0m] Experiment directory created at results/003-SiT-L-2-Linear-velocity-None
+wandb: Currently logged in as: karthikndasaraju (karthikndasaraju-indian-institute-of-science) to https://api.wandb.ai. Use `wandb login --relogin` to force relogin
+wandb: setting up run v0xexcl3
+wandb: Tracking run with wandb version 0.23.1
+wandb: Run data is saved locally in /home/venky/dkarthik/baselines/SiT/wandb/run-20260115_185403-v0xexcl3
+wandb: Run `wandb offline` to turn off syncing.
+wandb: Syncing run 003-SiT-L-2-Linear-velocity-None
+wandb: ⭐️ View project at https://wandb.ai/karthikndasaraju-indian-institute-of-science/SiT-L-2-ImageNet100
+wandb: 🚀 View run at https://wandb.ai/karthikndasaraju-indian-institute-of-science/SiT-L-2-ImageNet100/runs/v0xexcl3
+[[34m2026-01-15 18:54:12[0m] Loaded /home/venky/dkarthik/baselines/SiT/results/005-SiT-L-2-Linear-velocity-None/checkpoints/0050000.pt
+[[34m2026-01-15 18:54:12[0m] SiT Parameters: 457,181,216
+[[34m2026-01-15 18:54:14[0m] Filtering dataset: Keeping 100/1000 classes.
+[[34m2026-01-15 18:54:14[0m] Class 0: n01440764
+[[34m2026-01-15 18:54:14[0m] Class 99: n01855672
+[[34m2026-01-15 18:54:14[0m] Saved class mapping to results/003-SiT-L-2-Linear-velocity-None/class_labels.json
+[[34m2026-01-15 18:54:16[0m] Training for 1400 epochs...
+[[34m2026-01-15 18:54:16[0m] Beginning epoch 0...
+[[34m2026-01-15 18:56:44[0m] (step=0050100) Train Loss: 0.7965, Train Steps/Sec: 0.67
+[[34m2026-01-15 18:59:22[0m] (step=0050200) Train Loss: 0.7935, Train Steps/Sec: 0.63
+[[34m2026-01-15 19:02:01[0m] (step=0050300) Train Loss: 0.7914, Train Steps/Sec: 0.63
+[[34m2026-01-15 19:04:40[0m] (step=0050400) Train Loss: 0.7925, Train Steps/Sec: 0.63
+[[34m2026-01-15 19:07:20[0m] (step=0050500) Train Loss: 0.7947, Train Steps/Sec: 0.63
+[[34m2026-01-15 19:09:59[0m] (step=0050600) Train Loss: 0.7936, Train Steps/Sec: 0.63
+[[34m2026-01-15 19:12:38[0m] (step=0050700) Train Loss: 0.7921, Train Steps/Sec: 0.63
+[[34m2026-01-15 19:15:17[0m] (step=0050800) Train Loss: 0.7953, Train Steps/Sec: 0.63
+[[34m2026-01-15 19:17:54[0m] Beginning epoch 1...
+[[34m2026-01-15 19:17:59[0m] (step=0050900) Train Loss: 0.7947, Train Steps/Sec: 0.62
+[[34m2026-01-15 19:20:38[0m] (step=0051000) Train Loss: 0.7908, Train Steps/Sec: 0.63
+[[34m2026-01-15 19:23:18[0m] (step=0051100) Train Loss: 0.7904, Train Steps/Sec: 0.63
+[[34m2026-01-15 19:25:57[0m] (step=0051200) Train Loss: 0.7931, Train Steps/Sec: 0.63
+[[34m2026-01-15 19:28:37[0m] (step=0051300) Train Loss: 0.7926, Train Steps/Sec: 0.63
+[[34m2026-01-15 19:31:16[0m] (step=0051400) Train Loss: 0.7914, Train Steps/Sec: 0.63
+[[34m2026-01-15 19:33:55[0m] (step=0051500) Train Loss: 0.7946, Train Steps/Sec: 0.63
+[[34m2026-01-15 19:36:34[0m] (step=0051600) Train Loss: 0.7930, Train Steps/Sec: 0.63
+[[34m2026-01-15 19:39:12[0m] (step=0051700) Train Loss: 0.7954, Train Steps/Sec: 0.63
+[[34m2026-01-15 19:41:45[0m] Beginning epoch 2...
+[[34m2026-01-15 19:41:52[0m] (step=0051800) Train Loss: 0.7929, Train Steps/Sec: 0.63
+[[34m2026-01-15 19:44:32[0m] (step=0051900) Train Loss: 0.7925, Train Steps/Sec: 0.63
+[[34m2026-01-15 19:47:11[0m] (step=0052000) Train Loss: 0.7930, Train Steps/Sec: 0.63
+[[34m2026-01-15 19:49:50[0m] (step=0052100) Train Loss: 0.7935, Train Steps/Sec: 0.63
+[[34m2026-01-15 19:52:29[0m] (step=0052200) Train Loss: 0.7915, Train Steps/Sec: 0.63
+[[34m2026-01-15 19:55:07[0m] (step=0052300) Train Loss: 0.7921, Train Steps/Sec: 0.63
+[[34m2026-01-15 19:57:46[0m] (step=0052400) Train Loss: 0.7918, Train Steps/Sec: 0.63
+[[34m2026-01-15 20:00:24[0m] (step=0052500) Train Loss: 0.7942, Train Steps/Sec: 0.63
+[[34m2026-01-15 20:03:03[0m] (step=0052600) Train Loss: 0.7928, Train Steps/Sec: 0.63
+[[34m2026-01-15 20:05:32[0m] Beginning epoch 3...
+[[34m2026-01-15 20:05:43[0m] (step=0052700) Train Loss: 0.7911, Train Steps/Sec: 0.63
+[[34m2026-01-15 20:08:22[0m] (step=0052800) Train Loss: 0.7913, Train Steps/Sec: 0.63
+[[34m2026-01-15 20:11:01[0m] (step=0052900) Train Loss: 0.7921, Train Steps/Sec: 0.63
+[[34m2026-01-15 20:13:40[0m] (step=0053000) Train Loss: 0.7942, Train Steps/Sec: 0.63
+[[34m2026-01-15 20:16:20[0m] (step=0053100) Train Loss: 0.7934, Train Steps/Sec: 0.63
+[[34m2026-01-15 20:18:58[0m] (step=0053200) Train Loss: 0.7947, Train Steps/Sec: 0.63
+[[34m2026-01-15 20:21:37[0m] (step=0053300) Train Loss: 0.7909, Train Steps/Sec: 0.63
+[[34m2026-01-15 20:24:15[0m] (step=0053400) Train Loss: 0.7976, Train Steps/Sec: 0.63
+[[34m2026-01-15 20:26:55[0m] (step=0053500) Train Loss: 0.7922, Train Steps/Sec: 0.63
+[[34m2026-01-15 20:29:21[0m] Beginning epoch 4...
+[[34m2026-01-15 20:29:35[0m] (step=0053600) Train Loss: 0.7940, Train Steps/Sec: 0.63
+[[34m2026-01-15 20:32:13[0m] (step=0053700) Train Loss: 0.7915, Train Steps/Sec: 0.63
+[[34m2026-01-15 20:34:52[0m] (step=0053800) Train Loss: 0.7912, Train Steps/Sec: 0.63
+[[34m2026-01-15 20:37:30[0m] (step=0053900) Train Loss: 0.7931, Train Steps/Sec: 0.63
+[[34m2026-01-15 20:40:09[0m] (step=0054000) Train Loss: 0.7928, Train Steps/Sec: 0.63
+[[34m2026-01-15 20:42:48[0m] (step=0054100) Train Loss: 0.7943, Train Steps/Sec: 0.63
+[[34m2026-01-15 20:45:27[0m] (step=0054200) Train Loss: 0.7939, Train Steps/Sec: 0.63
+[[34m2026-01-15 20:48:05[0m] (step=0054300) Train Loss: 0.7921, Train Steps/Sec: 0.63
+[[34m2026-01-15 20:50:44[0m] (step=0054400) Train Loss: 0.7935, Train Steps/Sec: 0.63
+[[34m2026-01-15 20:53:07[0m] Beginning epoch 5...
+[[34m2026-01-15 20:53:24[0m] (step=0054500) Train Loss: 0.7915, Train Steps/Sec: 0.62
+[[34m2026-01-15 20:56:04[0m] (step=0054600) Train Loss: 0.7903, Train Steps/Sec: 0.63
+[[34m2026-01-15 20:58:43[0m] (step=0054700) Train Loss: 0.7914, Train Steps/Sec: 0.63
+[[34m2026-01-15 21:01:23[0m] (step=0054800) Train Loss: 0.7928, Train Steps/Sec: 0.63
+[[34m2026-01-15 21:04:02[0m] (step=0054900) Train Loss: 0.7903, Train Steps/Sec: 0.63
+[[34m2026-01-15 21:06:41[0m] (step=0055000) Train Loss: 0.7911, Train Steps/Sec: 0.63
+[[34m2026-01-15 21:09:19[0m] (step=0055100) Train Loss: 0.7915, Train Steps/Sec: 0.63
+[[34m2026-01-15 21:11:58[0m] (step=0055200) Train Loss: 0.7949, Train Steps/Sec: 0.63
+[[34m2026-01-15 21:14:38[0m] (step=0055300) Train Loss: 0.7912, Train Steps/Sec: 0.63
+[[34m2026-01-15 21:16:58[0m] Beginning epoch 6...
+[[34m2026-01-15 21:17:18[0m] (step=0055400) Train Loss: 0.7934, Train Steps/Sec: 0.62
+[[34m2026-01-15 21:19:58[0m] (step=0055500) Train Loss: 0.7924, Train Steps/Sec: 0.63
+[[34m2026-01-15 21:22:37[0m] (step=0055600) Train Loss: 0.7920, Train Steps/Sec: 0.63
+[[34m2026-01-15 21:25:17[0m] (step=0055700) Train Loss: 0.7905, Train Steps/Sec: 0.63
+[[34m2026-01-15 21:27:56[0m] (step=0055800) Train Loss: 0.7919, Train Steps/Sec: 0.63
+[[34m2026-01-15 21:30:35[0m] (step=0055900) Train Loss: 0.7909, Train Steps/Sec: 0.63
+[[34m2026-01-15 21:33:14[0m] (step=0056000) Train Loss: 0.7915, Train Steps/Sec: 0.63
+[[34m2026-01-15 21:35:53[0m] (step=0056100) Train Loss: 0.7916, Train Steps/Sec: 0.63
+[[34m2026-01-15 21:38:32[0m] (step=0056200) Train Loss: 0.7934, Train Steps/Sec: 0.63
+[[34m2026-01-15 21:40:49[0m] Beginning epoch 7...
+[[34m2026-01-15 21:41:12[0m] (step=0056300) Train Loss: 0.7911, Train Steps/Sec: 0.62
+[[34m2026-01-15 21:43:51[0m] (step=0056400) Train Loss: 0.7905, Train Steps/Sec: 0.63
+[[34m2026-01-15 21:46:31[0m] (step=0056500) Train Loss: 0.7910, Train Steps/Sec: 0.63
+[[34m2026-01-15 21:49:10[0m] (step=0056600) Train Loss: 0.7906, Train Steps/Sec: 0.63
+[[34m2026-01-15 21:51:49[0m] (step=0056700) Train Loss: 0.7917, Train Steps/Sec: 0.63
+[[34m2026-01-15 21:54:28[0m] (step=0056800) Train Loss: 0.7903, Train Steps/Sec: 0.63
+[[34m2026-01-15 21:57:08[0m] (step=0056900) Train Loss: 0.7916, Train Steps/Sec: 0.63
+[[34m2026-01-15 21:59:47[0m] (step=0057000) Train Loss: 0.7907, Train Steps/Sec: 0.63
+[[34m2026-01-15 22:02:26[0m] (step=0057100) Train Loss: 0.7940, Train Steps/Sec: 0.63
+[[34m2026-01-15 22:04:40[0m] Beginning epoch 8...
+[[34m2026-01-15 22:05:06[0m] (step=0057200) Train Loss: 0.7910, Train Steps/Sec: 0.63
+[[34m2026-01-15 22:07:45[0m] (step=0057300) Train Loss: 0.7934, Train Steps/Sec: 0.63
+[[34m2026-01-15 22:10:25[0m] (step=0057400) Train Loss: 0.7885, Train Steps/Sec: 0.63
+[[34m2026-01-15 22:13:05[0m] (step=0057500) Train Loss: 0.7915, Train Steps/Sec: 0.63
+[[34m2026-01-15 22:15:44[0m] (step=0057600) Train Loss: 0.7918, Train Steps/Sec: 0.63
+[[34m2026-01-15 22:18:24[0m] (step=0057700) Train Loss: 0.7929, Train Steps/Sec: 0.63
+[[34m2026-01-15 22:21:04[0m] (step=0057800) Train Loss: 0.7888, Train Steps/Sec: 0.63
+[[34m2026-01-15 22:23:43[0m] (step=0057900) Train Loss: 0.7903, Train Steps/Sec: 0.63
+[[34m2026-01-15 22:26:22[0m] (step=0058000) Train Loss: 0.7928, Train Steps/Sec: 0.63
+[[34m2026-01-15 22:28:32[0m] Beginning epoch 9...
+[[34m2026-01-15 22:29:02[0m] (step=0058100) Train Loss: 0.7912, Train Steps/Sec: 0.63
+[[34m2026-01-15 22:31:42[0m] (step=0058200) Train Loss: 0.7919, Train Steps/Sec: 0.63
+[[34m2026-01-15 22:34:21[0m] (step=0058300) Train Loss: 0.7917, Train Steps/Sec: 0.63
+[[34m2026-01-15 22:37:00[0m] (step=0058400) Train Loss: 0.7921, Train Steps/Sec: 0.63
+[[34m2026-01-15 22:39:38[0m] (step=0058500) Train Loss: 0.7924, Train Steps/Sec: 0.63
+[[34m2026-01-15 22:42:18[0m] (step=0058600) Train Loss: 0.7913, Train Steps/Sec: 0.63
+[[34m2026-01-15 22:44:57[0m] (step=0058700) Train Loss: 0.7927, Train Steps/Sec: 0.63
+[[34m2026-01-15 22:47:35[0m] (step=0058800) Train Loss: 0.7891, Train Steps/Sec: 0.63
+[[34m2026-01-15 22:50:14[0m] (step=0058900) Train Loss: 0.7898, Train Steps/Sec: 0.63
+[[34m2026-01-15 22:52:22[0m] Beginning epoch 10...
+[[34m2026-01-15 22:52:55[0m] (step=0059000) Train Loss: 0.7918, Train Steps/Sec: 0.62
+[[34m2026-01-15 22:55:34[0m] (step=0059100) Train Loss: 0.7904, Train Steps/Sec: 0.63
+[[34m2026-01-15 22:58:13[0m] (step=0059200) Train Loss: 0.7893, Train Steps/Sec: 0.63
+[[34m2026-01-15 23:00:52[0m] (step=0059300) Train Loss: 0.7916, Train Steps/Sec: 0.63
+[[34m2026-01-15 23:03:32[0m] (step=0059400) Train Loss: 0.7912, Train Steps/Sec: 0.63
+[[34m2026-01-15 23:06:11[0m] (step=0059500) Train Loss: 0.7917, Train Steps/Sec: 0.63
+[[34m2026-01-15 23:08:51[0m] (step=0059600) Train Loss: 0.7891, Train Steps/Sec: 0.63
+[[34m2026-01-15 23:11:30[0m] (step=0059700) Train Loss: 0.7918, Train Steps/Sec: 0.63
+[[34m2026-01-15 23:14:09[0m] (step=0059800) Train Loss: 0.7922, Train Steps/Sec: 0.63
+[[34m2026-01-15 23:16:13[0m] Beginning epoch 11...
+[[34m2026-01-15 23:16:49[0m] (step=0059900) Train Loss: 0.7893, Train Steps/Sec: 0.62
+[[34m2026-01-15 23:19:29[0m] (step=0060000) Train Loss: 0.7916, Train Steps/Sec: 0.63
+[[34m2026-01-15 23:19:56[0m] Saved checkpoint to results/003-SiT-L-2-Linear-velocity-None/checkpoints/0060000.pt
+[[34m2026-01-15 23:19:56[0m] Generating EMA samples...
+[[34m2026-01-15 23:20:42[0m] Generating EMA samples done.
+[[34m2026-01-15 23:23:18[0m] (step=0060100) Train Loss: 0.7878, Train Steps/Sec: 0.44
+[[34m2026-01-15 23:25:57[0m] (step=0060200) Train Loss: 0.7874, Train Steps/Sec: 0.63
+[[34m2026-01-15 23:28:36[0m] (step=0060300) Train Loss: 0.7891, Train Steps/Sec: 0.63
+[[34m2026-01-15 23:31:16[0m] (step=0060400) Train Loss: 0.7913, Train Steps/Sec: 0.63
+[[34m2026-01-15 23:33:56[0m] (step=0060500) Train Loss: 0.7887, Train Steps/Sec: 0.63
+[[34m2026-01-15 23:36:35[0m] (step=0060600) Train Loss: 0.7907, Train Steps/Sec: 0.63
+[[34m2026-01-15 23:39:15[0m] (step=0060700) Train Loss: 0.7876, Train Steps/Sec: 0.63
+[[34m2026-01-15 23:41:16[0m] Beginning epoch 12...
+[[34m2026-01-15 23:41:56[0m] (step=0060800) Train Loss: 0.7914, Train Steps/Sec: 0.62
+[[34m2026-01-15 23:44:36[0m] (step=0060900) Train Loss: 0.7881, Train Steps/Sec: 0.63
+[[34m2026-01-15 23:47:16[0m] (step=0061000) Train Loss: 0.7927, Train Steps/Sec: 0.62
+[[34m2026-01-15 23:49:56[0m] (step=0061100) Train Loss: 0.7909, Train Steps/Sec: 0.62
+[[34m2026-01-15 23:52:36[0m] (step=0061200) Train Loss: 0.7914, Train Steps/Sec: 0.62
+[[34m2026-01-15 23:55:16[0m] (step=0061300) Train Loss: 0.7886, Train Steps/Sec: 0.62
+[[34m2026-01-15 23:57:57[0m] (step=0061400) Train Loss: 0.7900, Train Steps/Sec: 0.62
+[[34m2026-01-16 00:00:37[0m] (step=0061500) Train Loss: 0.7891, Train Steps/Sec: 0.62
+[[34m2026-01-16 00:03:17[0m] (step=0061600) Train Loss: 0.7875, Train Steps/Sec: 0.62
+[[34m2026-01-16 00:05:16[0m] Beginning epoch 13...
+[[34m2026-01-16 00:05:58[0m] (step=0061700) Train Loss: 0.7895, Train Steps/Sec: 0.62
+[[34m2026-01-16 00:08:38[0m] (step=0061800) Train Loss: 0.7916, Train Steps/Sec: 0.63
+[[34m2026-01-16 00:11:19[0m] (step=0061900) Train Loss: 0.7905, Train Steps/Sec: 0.62
+[[34m2026-01-16 00:14:00[0m] (step=0062000) Train Loss: 0.7908, Train Steps/Sec: 0.62
+[[34m2026-01-16 00:16:40[0m] (step=0062100) Train Loss: 0.7904, Train Steps/Sec: 0.62
+[[34m2026-01-16 00:19:21[0m] (step=0062200) Train Loss: 0.7892, Train Steps/Sec: 0.62
+[[34m2026-01-16 00:22:02[0m] (step=0062300) Train Loss: 0.7923, Train Steps/Sec: 0.62
+[[34m2026-01-16 00:24:43[0m] (step=0062400) Train Loss: 0.7924, Train Steps/Sec: 0.62
+[[34m2026-01-16 00:27:24[0m] (step=0062500) Train Loss: 0.7912, Train Steps/Sec: 0.62
+[[34m2026-01-16 00:29:20[0m] Beginning epoch 14...
+[[34m2026-01-16 00:30:06[0m] (step=0062600) Train Loss: 0.7931, Train Steps/Sec: 0.62
+[[34m2026-01-16 00:32:47[0m] (step=0062700) Train Loss: 0.7880, Train Steps/Sec: 0.62
+[[34m2026-01-16 00:35:27[0m] (step=0062800) Train Loss: 0.7881, Train Steps/Sec: 0.62
+[[34m2026-01-16 00:38:08[0m] (step=0062900) Train Loss: 0.7893, Train Steps/Sec: 0.62
+[[34m2026-01-16 00:40:47[0m] (step=0063000) Train Loss: 0.7900, Train Steps/Sec: 0.63
+[[34m2026-01-16 00:43:27[0m] (step=0063100) Train Loss: 0.7884, Train Steps/Sec: 0.62
+[[34m2026-01-16 00:46:07[0m] (step=0063200) Train Loss: 0.7895, Train Steps/Sec: 0.63
+[[34m2026-01-16 00:48:48[0m] (step=0063300) Train Loss: 0.7873, Train Steps/Sec: 0.62
+[[34m2026-01-16 00:51:28[0m] (step=0063400) Train Loss: 0.7926, Train Steps/Sec: 0.63
+[[34m2026-01-16 00:53:19[0m] Beginning epoch 15...
+[[34m2026-01-16 00:54:07[0m] (step=0063500) Train Loss: 0.7901, Train Steps/Sec: 0.63
+[[34m2026-01-16 00:56:47[0m] (step=0063600) Train Loss: 0.7909, Train Steps/Sec: 0.63
+[[34m2026-01-16 00:59:28[0m] (step=0063700) Train Loss: 0.7907, Train Steps/Sec: 0.62
+[[34m2026-01-16 01:02:08[0m] (step=0063800) Train Loss: 0.7912, Train Steps/Sec: 0.62
+[[34m2026-01-16 01:04:48[0m] (step=0063900) Train Loss: 0.7881, Train Steps/Sec: 0.62
+[[34m2026-01-16 01:07:28[0m] (step=0064000) Train Loss: 0.7909, Train Steps/Sec: 0.63
+[[34m2026-01-16 01:10:08[0m] (step=0064100) Train Loss: 0.7925, Train Steps/Sec: 0.62
+[[34m2026-01-16 01:12:48[0m] (step=0064200) Train Loss: 0.7869, Train Steps/Sec: 0.63
+[[34m2026-01-16 01:15:28[0m] (step=0064300) Train Loss: 0.7899, Train Steps/Sec: 0.63
+[[34m2026-01-16 01:17:18[0m] Beginning epoch 16...
+[[34m2026-01-16 01:18:10[0m] (step=0064400) Train Loss: 0.7904, Train Steps/Sec: 0.62
+[[34m2026-01-16 01:20:50[0m] (step=0064500) Train Loss: 0.7913, Train Steps/Sec: 0.63
+[[34m2026-01-16 01:23:29[0m] (step=0064600) Train Loss: 0.7884, Train Steps/Sec: 0.63
+[[34m2026-01-16 01:26:08[0m] (step=0064700) Train Loss: 0.7898, Train Steps/Sec: 0.63
+[[34m2026-01-16 01:28:48[0m] (step=0064800) Train Loss: 0.7946, Train Steps/Sec: 0.63
+[[34m2026-01-16 01:31:29[0m] (step=0064900) Train Loss: 0.7897, Train Steps/Sec: 0.62
+[[34m2026-01-16 01:34:09[0m] (step=0065000) Train Loss: 0.7877, Train Steps/Sec: 0.62
+[[34m2026-01-16 01:36:50[0m] (step=0065100) Train Loss: 0.7883, Train Steps/Sec: 0.62
+[[34m2026-01-16 01:39:30[0m] (step=0065200) Train Loss: 0.7912, Train Steps/Sec: 0.63
+[[34m2026-01-16 01:41:15[0m] Beginning epoch 17...
+[[34m2026-01-16 01:42:10[0m] (step=0065300) Train Loss: 0.7905, Train Steps/Sec: 0.62
+[[34m2026-01-16 01:44:51[0m] (step=0065400) Train Loss: 0.7876, Train Steps/Sec: 0.62
+[[34m2026-01-16 01:47:31[0m] (step=0065500) Train Loss: 0.7897, Train Steps/Sec: 0.62
+[[34m2026-01-16 01:50:12[0m] (step=0065600) Train Loss: 0.7888, Train Steps/Sec: 0.62
+[[34m2026-01-16 01:52:53[0m] (step=0065700) Train Loss: 0.7894, Train Steps/Sec: 0.62
+[[34m2026-01-16 01:55:33[0m] (step=0065800) Train Loss: 0.7896, Train Steps/Sec: 0.62
+[[34m2026-01-16 01:58:13[0m] (step=0065900) Train Loss: 0.7889, Train Steps/Sec: 0.62
+[[34m2026-01-16 02:00:54[0m] (step=0066000) Train Loss: 0.7869, Train Steps/Sec: 0.62
+[[34m2026-01-16 02:03:33[0m] (step=0066100) Train Loss: 0.7899, Train Steps/Sec: 0.63
+[[34m2026-01-16 02:05:15[0m] Beginning epoch 18...
+[[34m2026-01-16 02:06:14[0m] (step=0066200) Train Loss: 0.7893, Train Steps/Sec: 0.62
+[[34m2026-01-16 02:08:54[0m] (step=0066300) Train Loss: 0.7867, Train Steps/Sec: 0.63
+[[34m2026-01-16 02:11:34[0m] (step=0066400) Train Loss: 0.7892, Train Steps/Sec: 0.63
+[[34m2026-01-16 02:14:14[0m] (step=0066500) Train Loss: 0.7876, Train Steps/Sec: 0.62
+[[34m2026-01-16 02:16:54[0m] (step=0066600) Train Loss: 0.7899, Train Steps/Sec: 0.62
+[[34m2026-01-16 02:19:35[0m] (step=0066700) Train Loss: 0.7884, Train Steps/Sec: 0.62
+[[34m2026-01-16 02:22:13[0m] (step=0066800) Train Loss: 0.7859, Train Steps/Sec: 0.63
+[[34m2026-01-16 02:24:52[0m] (step=0066900) Train Loss: 0.7904, Train Steps/Sec: 0.63
+[[34m2026-01-16 02:27:31[0m] (step=0067000) Train Loss: 0.7901, Train Steps/Sec: 0.63
+[[34m2026-01-16 02:29:11[0m] Beginning epoch 19...
+[[34m2026-01-16 02:30:12[0m] (step=0067100) Train Loss: 0.7879, Train Steps/Sec: 0.62
+[[34m2026-01-16 02:32:52[0m] (step=0067200) Train Loss: 0.7883, Train Steps/Sec: 0.62
+[[34m2026-01-16 02:35:31[0m] (step=0067300) Train Loss: 0.7872, Train Steps/Sec: 0.63
+[[34m2026-01-16 02:38:11[0m] (step=0067400) Train Loss: 0.7886, Train Steps/Sec: 0.63
+[[34m2026-01-16 02:40:51[0m] (step=0067500) Train Loss: 0.7901, Train Steps/Sec: 0.62
+[[34m2026-01-16 02:43:32[0m] (step=0067600) Train Loss: 0.7896, Train Steps/Sec: 0.62
+[[34m2026-01-16 02:46:12[0m] (step=0067700) Train Loss: 0.7918, Train Steps/Sec: 0.62
+[[34m2026-01-16 02:48:52[0m] (step=0067800) Train Loss: 0.7893, Train Steps/Sec: 0.62
+[[34m2026-01-16 02:51:32[0m] (step=0067900) Train Loss: 0.7908, Train Steps/Sec: 0.62
+[[34m2026-01-16 02:53:08[0m] Beginning epoch 20...
+[[34m2026-01-16 02:54:13[0m] (step=0068000) Train Loss: 0.7910, Train Steps/Sec: 0.62
+[[34m2026-01-16 02:56:53[0m] (step=0068100) Train Loss: 0.7869, Train Steps/Sec: 0.63
+[[34m2026-01-16 02:59:33[0m] (step=0068200) Train Loss: 0.7881, Train Steps/Sec: 0.63
+[[34m2026-01-16 03:02:12[0m] (step=0068300) Train Loss: 0.7866, Train Steps/Sec: 0.63
+[[34m2026-01-16 03:04:52[0m] (step=0068400) Train Loss: 0.7870, Train Steps/Sec: 0.63
+[[34m2026-01-16 03:07:32[0m] (step=0068500) Train Loss: 0.7886, Train Steps/Sec: 0.62
+[[34m2026-01-16 03:10:12[0m] (step=0068600) Train Loss: 0.7878, Train Steps/Sec: 0.63
+[[34m2026-01-16 03:12:52[0m] (step=0068700) Train Loss: 0.7888, Train Steps/Sec: 0.62
+[[34m2026-01-16 03:15:32[0m] (step=0068800) Train Loss: 0.7897, Train Steps/Sec: 0.62
+[[34m2026-01-16 03:17:06[0m] Beginning epoch 21...
+[[34m2026-01-16 03:18:14[0m] (step=0068900) Train Loss: 0.7913, Train Steps/Sec: 0.62
+[[34m2026-01-16 03:20:54[0m] (step=0069000) Train Loss: 0.7849, Train Steps/Sec: 0.62
+[[34m2026-01-16 03:23:35[0m] (step=0069100) Train Loss: 0.7883, Train Steps/Sec: 0.62
+[[34m2026-01-16 03:26:16[0m] (step=0069200) Train Loss: 0.7881, Train Steps/Sec: 0.62
+[[34m2026-01-16 03:28:56[0m] (step=0069300) Train Loss: 0.7892, Train Steps/Sec: 0.63
+[[34m2026-01-16 03:31:36[0m] (step=0069400) Train Loss: 0.7895, Train Steps/Sec: 0.62
+[[34m2026-01-16 03:34:16[0m] (step=0069500) Train Loss: 0.7866, Train Steps/Sec: 0.62
+[[34m2026-01-16 03:36:57[0m] (step=0069600) Train Loss: 0.7885, Train Steps/Sec: 0.62
+[[34m2026-01-16 03:39:37[0m] (step=0069700) Train Loss: 0.7892, Train Steps/Sec: 0.62
+[[34m2026-01-16 03:41:07[0m] Beginning epoch 22...
+[[34m2026-01-16 03:42:18[0m] (step=0069800) Train Loss: 0.7878, Train Steps/Sec: 0.62
+[[34m2026-01-16 03:44:57[0m] (step=0069900) Train Loss: 0.7854, Train Steps/Sec: 0.63
+[[34m2026-01-16 03:47:36[0m] (step=0070000) Train Loss: 0.7876, Train Steps/Sec: 0.63
+[[34m2026-01-16 03:48:25[0m] Saved checkpoint to results/003-SiT-L-2-Linear-velocity-None/checkpoints/0070000.pt
+[[34m2026-01-16 03:48:25[0m] Generating EMA samples...
+[[34m2026-01-16 03:49:10[0m] Generating EMA samples done.
+[[34m2026-01-16 03:51:44[0m] (step=0070100) Train Loss: 0.7858, Train Steps/Sec: 0.40
+[[34m2026-01-16 03:54:24[0m] (step=0070200) Train Loss: 0.7876, Train Steps/Sec: 0.63
+[[34m2026-01-16 03:57:04[0m] (step=0070300) Train Loss: 0.7887, Train Steps/Sec: 0.63
+[[34m2026-01-16 03:59:44[0m] (step=0070400) Train Loss: 0.7871, Train Steps/Sec: 0.62
+[[34m2026-01-16 04:02:24[0m] (step=0070500) Train Loss: 0.7886, Train Steps/Sec: 0.63
+[[34m2026-01-16 04:05:04[0m] (step=0070600) Train Loss: 0.7893, Train Steps/Sec: 0.62
+[[34m2026-01-16 04:06:31[0m] Beginning epoch 23...
+[[34m2026-01-16 04:07:45[0m] (step=0070700) Train Loss: 0.7866, Train Steps/Sec: 0.62
+[[34m2026-01-16 04:10:25[0m] (step=0070800) Train Loss: 0.7879, Train Steps/Sec: 0.63
+[[34m2026-01-16 04:13:05[0m] (step=0070900) Train Loss: 0.7871, Train Steps/Sec: 0.62
+[[34m2026-01-16 04:15:45[0m] (step=0071000) Train Loss: 0.7866, Train Steps/Sec: 0.63
+[[34m2026-01-16 04:18:24[0m] (step=0071100) Train Loss: 0.7887, Train Steps/Sec: 0.63
+[[34m2026-01-16 04:21:03[0m] (step=0071200) Train Loss: 0.7921, Train Steps/Sec: 0.63
+[[34m2026-01-16 04:23:43[0m] (step=0071300) Train Loss: 0.7890, Train Steps/Sec: 0.62
+[[34m2026-01-16 04:26:23[0m] (step=0071400) Train Loss: 0.7863, Train Steps/Sec: 0.63
+[[34m2026-01-16 04:29:03[0m] (step=0071500) Train Loss: 0.7867, Train Steps/Sec: 0.62
+[[34m2026-01-16 04:30:27[0m] Beginning epoch 24...
+[[34m2026-01-16 04:31:45[0m] (step=0071600) Train Loss: 0.7865, Train Steps/Sec: 0.62
+[[34m2026-01-16 04:34:25[0m] (step=0071700) Train Loss: 0.7892, Train Steps/Sec: 0.62
+[[34m2026-01-16 04:37:04[0m] (step=0071800) Train Loss: 0.7863, Train Steps/Sec: 0.63
+[[34m2026-01-16 04:39:44[0m] (step=0071900) Train Loss: 0.7902, Train Steps/Sec: 0.63
+[[34m2026-01-16 04:42:24[0m] (step=0072000) Train Loss: 0.7881, Train Steps/Sec: 0.63
+[[34m2026-01-16 04:45:04[0m] (step=0072100) Train Loss: 0.7850, Train Steps/Sec: 0.63
+[[34m2026-01-16 04:47:44[0m] (step=0072200) Train Loss: 0.7861, Train Steps/Sec: 0.62
+[[34m2026-01-16 04:50:25[0m] (step=0072300) Train Loss: 0.7862, Train Steps/Sec: 0.62
+[[34m2026-01-16 04:53:05[0m] (step=0072400) Train Loss: 0.7866, Train Steps/Sec: 0.62
+[[34m2026-01-16 04:54:26[0m] Beginning epoch 25...
+[[34m2026-01-16 04:55:47[0m] (step=0072500) Train Loss: 0.7872, Train Steps/Sec: 0.62
+[[34m2026-01-16 04:58:28[0m] (step=0072600) Train Loss: 0.7859, Train Steps/Sec: 0.62
+[[34m2026-01-16 05:01:08[0m] (step=0072700) Train Loss: 0.7868, Train Steps/Sec: 0.62
+[[34m2026-01-16 05:03:49[0m] (step=0072800) Train Loss: 0.7875, Train Steps/Sec: 0.62
+[[34m2026-01-16 05:06:29[0m] (step=0072900) Train Loss: 0.7835, Train Steps/Sec: 0.62
+[[34m2026-01-16 05:09:11[0m] (step=0073000) Train Loss: 0.7859, Train Steps/Sec: 0.62
+[[34m2026-01-16 05:11:52[0m] (step=0073100) Train Loss: 0.7879, Train Steps/Sec: 0.62
+[[34m2026-01-16 05:14:33[0m] (step=0073200) Train Loss: 0.7843, Train Steps/Sec: 0.62
+[[34m2026-01-16 05:17:14[0m] (step=0073300) Train Loss: 0.7880, Train Steps/Sec: 0.62
+[[34m2026-01-16 05:18:31[0m] Beginning epoch 26...
+[[34m2026-01-16 05:19:55[0m] (step=0073400) Train Loss: 0.7858, Train Steps/Sec: 0.62
+[[34m2026-01-16 05:22:34[0m] (step=0073500) Train Loss: 0.7856, Train Steps/Sec: 0.63
+[[34m2026-01-16 05:25:14[0m] (step=0073600) Train Loss: 0.7880, Train Steps/Sec: 0.62
+[[34m2026-01-16 05:27:54[0m] (step=0073700) Train Loss: 0.7863, Train Steps/Sec: 0.63
+[[34m2026-01-16 05:30:34[0m] (step=0073800) Train Loss: 0.7891, Train Steps/Sec: 0.63
+[[34m2026-01-16 05:33:14[0m] (step=0073900) Train Loss: 0.7865, Train Steps/Sec: 0.63
+[[34m2026-01-16 05:35:54[0m] (step=0074000) Train Loss: 0.7883, Train Steps/Sec: 0.62
+[[34m2026-01-16 05:38:34[0m] (step=0074100) Train Loss: 0.7890, Train Steps/Sec: 0.62
+[[34m2026-01-16 05:41:14[0m] (step=0074200) Train Loss: 0.7843, Train Steps/Sec: 0.62
+[[34m2026-01-16 05:42:28[0m] Beginning epoch 27...
+[[34m2026-01-16 05:43:56[0m] (step=0074300) Train Loss: 0.7860, Train Steps/Sec: 0.62
+[[34m2026-01-16 05:46:36[0m] (step=0074400) Train Loss: 0.7873, Train Steps/Sec: 0.63
+[[34m2026-01-16 05:49:16[0m] (step=0074500) Train Loss: 0.7874, Train Steps/Sec: 0.63
+[[34m2026-01-16 05:51:56[0m] (step=0074600) Train Loss: 0.7863, Train Steps/Sec: 0.63
+[[34m2026-01-16 05:54:35[0m] (step=0074700) Train Loss: 0.7864, Train Steps/Sec: 0.63
+[[34m2026-01-16 05:57:15[0m] (step=0074800) Train Loss: 0.7872, Train Steps/Sec: 0.63
+[[34m2026-01-16 05:59:55[0m] (step=0074900) Train Loss: 0.7869, Train Steps/Sec: 0.62
+[[34m2026-01-16 06:02:35[0m] (step=0075000) Train Loss: 0.7862, Train Steps/Sec: 0.63
+[[34m2026-01-16 06:05:15[0m] (step=0075100) Train Loss: 0.7849, Train Steps/Sec: 0.62
+[[34m2026-01-16 06:06:26[0m] Beginning epoch 28...
+[[34m2026-01-16 06:07:57[0m] (step=0075200) Train Loss: 0.7898, Train Steps/Sec: 0.62
+[[34m2026-01-16 06:10:37[0m] (step=0075300) Train Loss: 0.7885, Train Steps/Sec: 0.62
+[[34m2026-01-16 06:13:17[0m] (step=0075400) Train Loss: 0.7860, Train Steps/Sec: 0.62
+[[34m2026-01-16 06:15:58[0m] (step=0075500) Train Loss: 0.7863, Train Steps/Sec: 0.62
+[[34m2026-01-16 06:18:38[0m] (step=0075600) Train Loss: 0.7885, Train Steps/Sec: 0.63
+[[34m2026-01-16 06:21:18[0m] (step=0075700) Train Loss: 0.7852, Train Steps/Sec: 0.63
+[[34m2026-01-16 06:23:58[0m] (step=0075800) Train Loss: 0.7866, Train Steps/Sec: 0.62
+[[34m2026-01-16 06:26:38[0m] (step=0075900) Train Loss: 0.7849, Train Steps/Sec: 0.62
+[[34m2026-01-16 06:29:18[0m] (step=0076000) Train Loss: 0.7858, Train Steps/Sec: 0.62
+[[34m2026-01-16 06:30:25[0m] Beginning epoch 29...
+[[34m2026-01-16 06:31:59[0m] (step=0076100) Train Loss: 0.7856, Train Steps/Sec: 0.62
+[[34m2026-01-16 06:34:39[0m] (step=0076200) Train Loss: 0.7870, Train Steps/Sec: 0.63
+[[34m2026-01-16 06:37:19[0m] (step=0076300) Train Loss: 0.7845, Train Steps/Sec: 0.63
+[[34m2026-01-16 06:39:59[0m] (step=0076400) Train Loss: 0.7876, Train Steps/Sec: 0.62
+[[34m2026-01-16 06:42:40[0m] (step=0076500) Train Loss: 0.7872, Train Steps/Sec: 0.62
+[[34m2026-01-16 06:45:20[0m] (step=0076600) Train Loss: 0.7850, Train Steps/Sec: 0.62
+[[34m2026-01-16 06:48:00[0m] (step=0076700) Train Loss: 0.7865, Train Steps/Sec: 0.63
+[[34m2026-01-16 06:50:40[0m] (step=0076800) Train Loss: 0.7852, Train Steps/Sec: 0.63
+[[34m2026-01-16 06:53:20[0m] (step=0076900) Train Loss: 0.7886, Train Steps/Sec: 0.62
+[[34m2026-01-16 06:54:24[0m] Beginning epoch 30...
+[[34m2026-01-16 06:56:01[0m] (step=0077000) Train Loss: 0.7870, Train Steps/Sec: 0.62
+[[34m2026-01-16 06:58:41[0m] (step=0077100) Train Loss: 0.7864, Train Steps/Sec: 0.63
+[[34m2026-01-16 07:01:21[0m] (step=0077200) Train Loss: 0.7860, Train Steps/Sec: 0.63
+[[34m2026-01-16 07:04:00[0m] (step=0077300) Train Loss: 0.7888, Train Steps/Sec: 0.63
+[[34m2026-01-16 07:06:39[0m] (step=0077400) Train Loss: 0.7890, Train Steps/Sec: 0.63
+[[34m2026-01-16 07:09:19[0m] (step=0077500) Train Loss: 0.7880, Train Steps/Sec: 0.62
+[[34m2026-01-16 07:12:00[0m] (step=0077600) Train Loss: 0.7864, Train Steps/Sec: 0.62
+[[34m2026-01-16 07:14:40[0m] (step=0077700) Train Loss: 0.7854, Train Steps/Sec: 0.62
+[[34m2026-01-16 07:17:19[0m] (step=0077800) Train Loss: 0.7876, Train Steps/Sec: 0.63
+[[34m2026-01-16 07:18:20[0m] Beginning epoch 31...
+[[34m2026-01-16 07:20:00[0m] (step=0077900) Train Loss: 0.7856, Train Steps/Sec: 0.62
+[[34m2026-01-16 07:22:40[0m] (step=0078000) Train Loss: 0.7869, Train Steps/Sec: 0.62
+[[34m2026-01-16 07:25:20[0m] (step=0078100) Train Loss: 0.7871, Train Steps/Sec: 0.63
+[[34m2026-01-16 07:28:00[0m] (step=0078200) Train Loss: 0.7843, Train Steps/Sec: 0.62
+[[34m2026-01-16 07:30:41[0m] (step=0078300) Train Loss: 0.7880, Train Steps/Sec: 0.62
+[[34m2026-01-16 07:33:21[0m] (step=0078400) Train Loss: 0.7873, Train Steps/Sec: 0.62
+[[34m2026-01-16 07:36:01[0m] (step=0078500) Train Loss: 0.7878, Train Steps/Sec: 0.62
+[[34m2026-01-16 07:38:42[0m] (step=0078600) Train Loss: 0.7830, Train Steps/Sec: 0.62
+[[34m2026-01-16 07:41:22[0m] (step=0078700) Train Loss: 0.7881, Train Steps/Sec: 0.63
+[[34m2026-01-16 07:42:19[0m] Beginning epoch 32...
+[[34m2026-01-16 07:44:03[0m] (step=0078800) Train Loss: 0.7838, Train Steps/Sec: 0.62
+[[34m2026-01-16 07:46:43[0m] (step=0078900) Train Loss: 0.7858, Train Steps/Sec: 0.62
+[[34m2026-01-16 07:49:23[0m] (step=0079000) Train Loss: 0.7878, Train Steps/Sec: 0.63
+[[34m2026-01-16 07:52:03[0m] (step=0079100) Train Loss: 0.7870, Train Steps/Sec: 0.63
+[[34m2026-01-16 07:54:43[0m] (step=0079200) Train Loss: 0.7873, Train Steps/Sec: 0.62
+[[34m2026-01-16 07:57:23[0m] (step=0079300) Train Loss: 0.7857, Train Steps/Sec: 0.62
+[[34m2026-01-16 08:00:03[0m] (step=0079400) Train Loss: 0.7876, Train Steps/Sec: 0.62
+[[34m2026-01-16 08:02:44[0m] (step=0079500) Train Loss: 0.7874, Train Steps/Sec: 0.62
+[[34m2026-01-16 08:05:24[0m] (step=0079600) Train Loss: 0.7880, Train Steps/Sec: 0.62
+[[34m2026-01-16 08:06:18[0m] Beginning epoch 33...
+[[34m2026-01-16 08:08:04[0m] (step=0079700) Train Loss: 0.7870, Train Steps/Sec: 0.62
+[[34m2026-01-16 08:10:43[0m] (step=0079800) Train Loss: 0.7849, Train Steps/Sec: 0.63
+[[34m2026-01-16 08:13:23[0m] (step=0079900) Train Loss: 0.7840, Train Steps/Sec: 0.62
+[[34m2026-01-16 08:16:04[0m] (step=0080000) Train Loss: 0.7879, Train Steps/Sec: 0.62
+[[34m2026-01-16 08:16:27[0m] Saved checkpoint to results/003-SiT-L-2-Linear-velocity-None/checkpoints/0080000.pt
+[[34m2026-01-16 08:16:27[0m] Generating EMA samples...
+[[34m2026-01-16 08:17:24[0m] Generating EMA samples done.
+[[34m2026-01-16 08:20:02[0m] (step=0080100) Train Loss: 0.7856, Train Steps/Sec: 0.42
+[[34m2026-01-16 08:22:42[0m] (step=0080200) Train Loss: 0.7863, Train Steps/Sec: 0.62
+[[34m2026-01-16 08:25:22[0m] (step=0080300) Train Loss: 0.7865, Train Steps/Sec: 0.63
+[[34m2026-01-16 08:28:02[0m] (step=0080400) Train Loss: 0.7853, Train Steps/Sec: 0.62
+[[34m2026-01-16 08:30:42[0m] (step=0080500) Train Loss: 0.7854, Train Steps/Sec: 0.62
+[[34m2026-01-16 08:31:34[0m] Beginning epoch 34...
+[[34m2026-01-16 08:33:23[0m] (step=0080600) Train Loss: 0.7834, Train Steps/Sec: 0.62
+[[34m2026-01-16 08:36:03[0m] (step=0080700) Train Loss: 0.7851, Train Steps/Sec: 0.63
+[[34m2026-01-16 08:38:43[0m] (step=0080800) Train Loss: 0.7846, Train Steps/Sec: 0.63
+[[34m2026-01-16 08:41:23[0m] (step=0080900) Train Loss: 0.7879, Train Steps/Sec: 0.62
+[[34m2026-01-16 08:44:03[0m] (step=0081000) Train Loss: 0.7872, Train Steps/Sec: 0.63
+[[34m2026-01-16 08:46:43[0m] (step=0081100) Train Loss: 0.7868, Train Steps/Sec: 0.62
+[[34m2026-01-16 08:49:24[0m] (step=0081200) Train Loss: 0.7903, Train Steps/Sec: 0.62
+[[34m2026-01-16 08:52:04[0m] (step=0081300) Train Loss: 0.7856, Train Steps/Sec: 0.62
+[[34m2026-01-16 08:54:44[0m] (step=0081400) Train Loss: 0.7867, Train Steps/Sec: 0.62
+[[34m2026-01-16 08:55:32[0m] Beginning epoch 35...
+[[34m2026-01-16 08:57:25[0m] (step=0081500) Train Loss: 0.7866, Train Steps/Sec: 0.62
+[[34m2026-01-16 09:00:04[0m] (step=0081600) Train Loss: 0.7845, Train Steps/Sec: 0.63
+[[34m2026-01-16 09:02:44[0m] (step=0081700) Train Loss: 0.7851, Train Steps/Sec: 0.62
+[[34m2026-01-16 09:05:25[0m] (step=0081800) Train Loss: 0.7891, Train Steps/Sec: 0.62
+[[34m2026-01-16 09:08:04[0m] (step=0081900) Train Loss: 0.7845, Train Steps/Sec: 0.63
+[[34m2026-01-16 09:10:43[0m] (step=0082000) Train Loss: 0.7853, Train Steps/Sec: 0.63
+[[34m2026-01-16 09:13:22[0m] (step=0082100) Train Loss: 0.7871, Train Steps/Sec: 0.63
+[[34m2026-01-16 09:16:01[0m] (step=0082200) Train Loss: 0.7856, Train Steps/Sec: 0.63
+[[34m2026-01-16 09:18:41[0m] (step=0082300) Train Loss: 0.7866, Train Steps/Sec: 0.63
+[[34m2026-01-16 09:19:26[0m] Beginning epoch 36...
+[[34m2026-01-16 09:21:23[0m] (step=0082400) Train Loss: 0.7839, Train Steps/Sec: 0.62
+[[34m2026-01-16 09:24:02[0m] (step=0082500) Train Loss: 0.7845, Train Steps/Sec: 0.63
+[[34m2026-01-16 09:26:42[0m] (step=0082600) Train Loss: 0.7842, Train Steps/Sec: 0.63
+[[34m2026-01-16 09:29:22[0m] (step=0082700) Train Loss: 0.7861, Train Steps/Sec: 0.63
+[[34m2026-01-16 09:32:02[0m] (step=0082800) Train Loss: 0.7883, Train Steps/Sec: 0.63
+[[34m2026-01-16 09:34:42[0m] (step=0082900) Train Loss: 0.7854, Train Steps/Sec: 0.62
+[[34m2026-01-16 09:37:22[0m] (step=0083000) Train Loss: 0.7861, Train Steps/Sec: 0.63
+[[34m2026-01-16 09:40:02[0m] (step=0083100) Train Loss: 0.7885, Train Steps/Sec: 0.62
+[[34m2026-01-16 09:42:42[0m] (step=0083200) Train Loss: 0.7843, Train Steps/Sec: 0.62
+[[34m2026-01-16 09:43:24[0m] Beginning epoch 37...
+[[34m2026-01-16 09:45:24[0m] (step=0083300) Train Loss: 0.7848, Train Steps/Sec: 0.62
+[[34m2026-01-16 09:48:05[0m] (step=0083400) Train Loss: 0.7876, Train Steps/Sec: 0.62
+[[34m2026-01-16 09:50:45[0m] (step=0083500) Train Loss: 0.7833, Train Steps/Sec: 0.62
+[[34m2026-01-16 09:53:25[0m] (step=0083600) Train Loss: 0.7845, Train Steps/Sec: 0.62
+[[34m2026-01-16 09:56:06[0m] (step=0083700) Train Loss: 0.7843, Train Steps/Sec: 0.62
+[[34m2026-01-16 09:58:46[0m] (step=0083800) Train Loss: 0.7860, Train Steps/Sec: 0.63
+[[34m2026-01-16 10:01:26[0m] (step=0083900) Train Loss: 0.7853, Train Steps/Sec: 0.62
+[[34m2026-01-16 10:04:06[0m] (step=0084000) Train Loss: 0.7859, Train Steps/Sec: 0.62
+[[34m2026-01-16 10:06:46[0m] (step=0084100) Train Loss: 0.7815, Train Steps/Sec: 0.63
+[[34m2026-01-16 10:07:24[0m] Beginning epoch 38...
+[[34m2026-01-16 10:09:26[0m] (step=0084200) Train Loss: 0.7832, Train Steps/Sec: 0.62
+[[34m2026-01-16 10:12:05[0m] (step=0084300) Train Loss: 0.7869, Train Steps/Sec: 0.63
+[[34m2026-01-16 10:14:44[0m] (step=0084400) Train Loss: 0.7853, Train Steps/Sec: 0.63
+[[34m2026-01-16 10:17:24[0m] (step=0084500) Train Loss: 0.7804, Train Steps/Sec: 0.63
+[[34m2026-01-16 10:20:03[0m] (step=0084600) Train Loss: 0.7857, Train Steps/Sec: 0.63
+[[34m2026-01-16 10:22:44[0m] (step=0084700) Train Loss: 0.7835, Train Steps/Sec: 0.62
+[[34m2026-01-16 10:25:24[0m] (step=0084800) Train Loss: 0.7844, Train Steps/Sec: 0.62
+[[34m2026-01-16 10:28:04[0m] (step=0084900) Train Loss: 0.7865, Train Steps/Sec: 0.63
+[[34m2026-01-16 10:30:44[0m] (step=0085000) Train Loss: 0.7859, Train Steps/Sec: 0.62
+[[34m2026-01-16 10:31:19[0m] Beginning epoch 39...
+[[34m2026-01-16 10:33:25[0m] (step=0085100) Train Loss: 0.7827, Train Steps/Sec: 0.62
+[[34m2026-01-16 10:36:05[0m] (step=0085200) Train Loss: 0.7824, Train Steps/Sec: 0.63
+[[34m2026-01-16 10:38:45[0m] (step=0085300) Train Loss: 0.7850, Train Steps/Sec: 0.62
+[[34m2026-01-16 10:41:25[0m] (step=0085400) Train Loss: 0.7845, Train Steps/Sec: 0.62
+[[34m2026-01-16 10:44:06[0m] (step=0085500) Train Loss: 0.7861, Train Steps/Sec: 0.62
+[[34m2026-01-16 10:46:46[0m] (step=0085600) Train Loss: 0.7849, Train Steps/Sec: 0.63
+[[34m2026-01-16 10:49:26[0m] (step=0085700) Train Loss: 0.7864, Train Steps/Sec: 0.62
+[[34m2026-01-16 10:52:06[0m] (step=0085800) Train Loss: 0.7886, Train Steps/Sec: 0.63
+[[34m2026-01-16 10:54:46[0m] (step=0085900) Train Loss: 0.7851, Train Steps/Sec: 0.62
+[[34m2026-01-16 10:55:18[0m] Beginning epoch 40...
+[[34m2026-01-16 10:57:27[0m] (step=0086000) Train Loss: 0.7832, Train Steps/Sec: 0.62
+[[34m2026-01-16 11:00:07[0m] (step=0086100) Train Loss: 0.7854, Train Steps/Sec: 0.62
+[[34m2026-01-16 11:02:47[0m] (step=0086200) Train Loss: 0.7823, Train Steps/Sec: 0.63
+[[34m2026-01-16 11:05:27[0m] (step=0086300) Train Loss: 0.7861, Train Steps/Sec: 0.62
+[[34m2026-01-16 11:08:07[0m] (step=0086400) Train Loss: 0.7843, Train Steps/Sec: 0.62
+[[34m2026-01-16 11:10:47[0m] (step=0086500) Train Loss: 0.7876, Train Steps/Sec: 0.63
+[[34m2026-01-16 11:13:27[0m] (step=0086600) Train Loss: 0.7836, Train Steps/Sec: 0.63
+[[34m2026-01-16 11:16:06[0m] (step=0086700) Train Loss: 0.7855, Train Steps/Sec: 0.63
+[[34m2026-01-16 11:18:46[0m] (step=0086800) Train Loss: 0.7834, Train Steps/Sec: 0.63
+[[34m2026-01-16 11:19:15[0m] Beginning epoch 41...
+[[34m2026-01-16 11:21:27[0m] (step=0086900) Train Loss: 0.7838, Train Steps/Sec: 0.62
+[[34m2026-01-16 11:24:07[0m] (step=0087000) Train Loss: 0.7814, Train Steps/Sec: 0.62
+[[34m2026-01-16 11:26:46[0m] (step=0087100) Train Loss: 0.7850, Train Steps/Sec: 0.63
+[[34m2026-01-16 11:29:27[0m] (step=0087200) Train Loss: 0.7828, Train Steps/Sec: 0.62
+[[34m2026-01-16 11:32:07[0m] (step=0087300) Train Loss: 0.7837, Train Steps/Sec: 0.62
+[[34m2026-01-16 11:34:47[0m] (step=0087400) Train Loss: 0.7826, Train Steps/Sec: 0.63
+[[34m2026-01-16 11:37:26[0m] (step=0087500) Train Loss: 0.7815, Train Steps/Sec: 0.63
+[[34m2026-01-16 11:40:06[0m] (step=0087600) Train Loss: 0.7832, Train Steps/Sec: 0.63
+[[34m2026-01-16 11:42:46[0m] (step=0087700) Train Loss: 0.7859, Train Steps/Sec: 0.62
+[[34m2026-01-16 11:43:12[0m] Beginning epoch 42...
+[[34m2026-01-16 11:45:27[0m] (step=0087800) Train Loss: 0.7858, Train Steps/Sec: 0.62
+[[34m2026-01-16 11:48:06[0m] (step=0087900) Train Loss: 0.7836, Train Steps/Sec: 0.63
+[[34m2026-01-16 11:50:45[0m] (step=0088000) Train Loss: 0.7840, Train Steps/Sec: 0.63
+[[34m2026-01-16 11:53:25[0m] (step=0088100) Train Loss: 0.7828, Train Steps/Sec: 0.63
+[[34m2026-01-16 11:56:04[0m] (step=0088200) Train Loss: 0.7834, Train Steps/Sec: 0.63
+[[34m2026-01-16 11:58:44[0m] (step=0088300) Train Loss: 0.7860, Train Steps/Sec: 0.63
+[[34m2026-01-16 12:01:24[0m] (step=0088400) Train Loss: 0.7872, Train Steps/Sec: 0.62
+[[34m2026-01-16 12:04:04[0m] (step=0088500) Train Loss: 0.7845, Train Steps/Sec: 0.62
+[[34m2026-01-16 12:06:44[0m] (step=0088600) Train Loss: 0.7833, Train Steps/Sec: 0.62
+[[34m2026-01-16 12:07:07[0m] Beginning epoch 43...
+[[34m2026-01-16 12:09:26[0m] (step=0088700) Train Loss: 0.7800, Train Steps/Sec: 0.62
+[[34m2026-01-16 12:12:05[0m] (step=0088800) Train Loss: 0.7867, Train Steps/Sec: 0.63
+[[34m2026-01-16 12:14:44[0m] (step=0088900) Train Loss: 0.7871, Train Steps/Sec: 0.63
+[[34m2026-01-16 12:17:24[0m] (step=0089000) Train Loss: 0.7829, Train Steps/Sec: 0.62
+[[34m2026-01-16 12:20:05[0m] (step=0089100) Train Loss: 0.7840, Train Steps/Sec: 0.62
+[[34m2026-01-16 12:22:45[0m] (step=0089200) Train Loss: 0.7838, Train Steps/Sec: 0.63
+[[34m2026-01-16 12:25:25[0m] (step=0089300) Train Loss: 0.7820, Train Steps/Sec: 0.63
+[[34m2026-01-16 12:28:05[0m] (step=0089400) Train Loss: 0.7860, Train Steps/Sec: 0.62
+[[34m2026-01-16 12:30:44[0m] (step=0089500) Train Loss: 0.7845, Train Steps/Sec: 0.63
+[[34m2026-01-16 12:31:04[0m] Beginning epoch 44...
+[[34m2026-01-16 12:33:25[0m] (step=0089600) Train Loss: 0.7859, Train Steps/Sec: 0.62
+[[34m2026-01-16 12:36:05[0m] (step=0089700) Train Loss: 0.7839, Train Steps/Sec: 0.63
+[[34m2026-01-16 12:38:45[0m] (step=0089800) Train Loss: 0.7819, Train Steps/Sec: 0.62
+[[34m2026-01-16 12:41:25[0m] (step=0089900) Train Loss: 0.7862, Train Steps/Sec: 0.63
+[[34m2026-01-16 12:44:05[0m] (step=0090000) Train Loss: 0.7818, Train Steps/Sec: 0.62
+[[34m2026-01-16 12:44:24[0m] Saved checkpoint to results/003-SiT-L-2-Linear-velocity-None/checkpoints/0090000.pt
+[[34m2026-01-16 12:44:24[0m] Generating EMA samples...
+[[34m2026-01-16 12:45:16[0m] Generating EMA samples done.
+[[34m2026-01-16 12:47:55[0m] (step=0090100) Train Loss: 0.7856, Train Steps/Sec: 0.44
+[[34m2026-01-16 12:50:35[0m] (step=0090200) Train Loss: 0.7852, Train Steps/Sec: 0.62
+[[34m2026-01-16 12:53:15[0m] (step=0090300) Train Loss: 0.7840, Train Steps/Sec: 0.62
+[[34m2026-01-16 12:55:55[0m] (step=0090400) Train Loss: 0.7845, Train Steps/Sec: 0.62
+[[34m2026-01-16 12:56:11[0m] Beginning epoch 45...
+[[34m2026-01-16 12:58:36[0m] (step=0090500) Train Loss: 0.7827, Train Steps/Sec: 0.62
+[[34m2026-01-16 13:01:16[0m] (step=0090600) Train Loss: 0.7809, Train Steps/Sec: 0.63
+[[34m2026-01-16 13:03:55[0m] (step=0090700) Train Loss: 0.7823, Train Steps/Sec: 0.63
+[[34m2026-01-16 13:06:35[0m] (step=0090800) Train Loss: 0.7837, Train Steps/Sec: 0.63
+[[34m2026-01-16 13:09:14[0m] (step=0090900) Train Loss: 0.7857, Train Steps/Sec: 0.63
+[[34m2026-01-16 13:11:54[0m] (step=0091000) Train Loss: 0.7852, Train Steps/Sec: 0.63
+[[34m2026-01-16 13:14:33[0m] (step=0091100) Train Loss: 0.7855, Train Steps/Sec: 0.63
+[[34m2026-01-16 13:17:13[0m] (step=0091200) Train Loss: 0.7845, Train Steps/Sec: 0.63
+[[34m2026-01-16 13:19:52[0m] (step=0091300) Train Loss: 0.7886, Train Steps/Sec: 0.63
+[[34m2026-01-16 13:20:05[0m] Beginning epoch 46...
+[[34m2026-01-16 13:22:34[0m] (step=0091400) Train Loss: 0.7813, Train Steps/Sec: 0.62
+[[34m2026-01-16 13:25:13[0m] (step=0091500) Train Loss: 0.7832, Train Steps/Sec: 0.63
+[[34m2026-01-16 13:27:54[0m] (step=0091600) Train Loss: 0.7839, Train Steps/Sec: 0.62
+[[34m2026-01-16 13:30:34[0m] (step=0091700) Train Loss: 0.7855, Train Steps/Sec: 0.63
+[[34m2026-01-16 13:33:13[0m] (step=0091800) Train Loss: 0.7835, Train Steps/Sec: 0.63
+[[34m2026-01-16 13:35:53[0m] (step=0091900) Train Loss: 0.7847, Train Steps/Sec: 0.63
+[[34m2026-01-16 13:38:33[0m] (step=0092000) Train Loss: 0.7846, Train Steps/Sec: 0.63
+[[34m2026-01-16 13:41:13[0m] (step=0092100) Train Loss: 0.7817, Train Steps/Sec: 0.63
+[[34m2026-01-16 13:43:52[0m] (step=0092200) Train Loss: 0.7822, Train Steps/Sec: 0.63
+[[34m2026-01-16 13:44:02[0m] Beginning epoch 47...
+[[34m2026-01-16 13:46:32[0m] (step=0092300) Train Loss: 0.7798, Train Steps/Sec: 0.62
+[[34m2026-01-16 13:49:12[0m] (step=0092400) Train Loss: 0.7863, Train Steps/Sec: 0.63
+[[34m2026-01-16 13:51:52[0m] (step=0092500) Train Loss: 0.7823, Train Steps/Sec: 0.63
+[[34m2026-01-16 13:54:32[0m] (step=0092600) Train Loss: 0.7831, Train Steps/Sec: 0.62
+[[34m2026-01-16 13:57:13[0m] (step=0092700) Train Loss: 0.7830, Train Steps/Sec: 0.62
+[[34m2026-01-16 13:59:52[0m] (step=0092800) Train Loss: 0.7847, Train Steps/Sec: 0.63
+[[34m2026-01-16 14:02:32[0m] (step=0092900) Train Loss: 0.7836, Train Steps/Sec: 0.62
+[[34m2026-01-16 14:05:12[0m] (step=0093000) Train Loss: 0.7845, Train Steps/Sec: 0.62
+[[34m2026-01-16 14:07:53[0m] (step=0093100) Train Loss: 0.7814, Train Steps/Sec: 0.62
+[[34m2026-01-16 14:07:59[0m] Beginning epoch 48...
+[[34m2026-01-16 14:10:34[0m] (step=0093200) Train Loss: 0.7845, Train Steps/Sec: 0.62
+[[34m2026-01-16 14:13:14[0m] (step=0093300) Train Loss: 0.7846, Train Steps/Sec: 0.62
+[[34m2026-01-16 14:15:54[0m] (step=0093400) Train Loss: 0.7821, Train Steps/Sec: 0.62
+[[34m2026-01-16 14:18:34[0m] (step=0093500) Train Loss: 0.7855, Train Steps/Sec: 0.63
+[[34m2026-01-16 14:21:14[0m] (step=0093600) Train Loss: 0.7812, Train Steps/Sec: 0.63
+[[34m2026-01-16 14:23:54[0m] (step=0093700) Train Loss: 0.7811, Train Steps/Sec: 0.62
+[[34m2026-01-16 14:26:35[0m] (step=0093800) Train Loss: 0.7823, Train Steps/Sec: 0.62
+[[34m2026-01-16 14:29:15[0m] (step=0093900) Train Loss: 0.7818, Train Steps/Sec: 0.63
+[[34m2026-01-16 14:31:54[0m] (step=0094000) Train Loss: 0.7853, Train Steps/Sec: 0.63
+[[34m2026-01-16 14:31:58[0m] Beginning epoch 49...
+[[34m2026-01-16 14:34:35[0m] (step=0094100) Train Loss: 0.7831, Train Steps/Sec: 0.62
+[[34m2026-01-16 14:37:15[0m] (step=0094200) Train Loss: 0.7799, Train Steps/Sec: 0.62
+[[34m2026-01-16 14:39:55[0m] (step=0094300) Train Loss: 0.7841, Train Steps/Sec: 0.62
+[[34m2026-01-16 14:42:36[0m] (step=0094400) Train Loss: 0.7830, Train Steps/Sec: 0.62
+[[34m2026-01-16 14:45:15[0m] (step=0094500) Train Loss: 0.7847, Train Steps/Sec: 0.63
+[[34m2026-01-16 14:47:55[0m] (step=0094600) Train Loss: 0.7812, Train Steps/Sec: 0.63
+[[34m2026-01-16 14:50:35[0m] (step=0094700) Train Loss: 0.7851, Train Steps/Sec: 0.62
+[[34m2026-01-16 14:53:16[0m] (step=0094800) Train Loss: 0.7830, Train Steps/Sec: 0.62
+[[34m2026-01-16 14:55:56[0m] (step=0094900) Train Loss: 0.7810, Train Steps/Sec: 0.62
+[[34m2026-01-16 14:55:56[0m] Beginning epoch 50...
+[[34m2026-01-16 14:58:37[0m] (step=0095000) Train Loss: 0.7838, Train Steps/Sec: 0.62
+[[34m2026-01-16 15:01:16[0m] (step=0095100) Train Loss: 0.7833, Train Steps/Sec: 0.63
+[[34m2026-01-16 15:03:57[0m] (step=0095200) Train Loss: 0.7807, Train Steps/Sec: 0.62
+[[34m2026-01-16 15:06:37[0m] (step=0095300) Train Loss: 0.7840, Train Steps/Sec: 0.63
+[[34m2026-01-16 15:09:16[0m] (step=0095400) Train Loss: 0.7835, Train Steps/Sec: 0.63
+[[34m2026-01-16 15:11:56[0m] (step=0095500) Train Loss: 0.7802, Train Steps/Sec: 0.63
+[[34m2026-01-16 15:14:37[0m] (step=0095600) Train Loss: 0.7844, Train Steps/Sec: 0.62
+[[34m2026-01-16 15:17:17[0m] (step=0095700) Train Loss: 0.7831, Train Steps/Sec: 0.62
+[[34m2026-01-16 15:19:54[0m] Beginning epoch 51...
+[[34m2026-01-16 15:19:59[0m] (step=0095800) Train Loss: 0.7847, Train Steps/Sec: 0.62

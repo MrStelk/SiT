@@ -1,0 +1,90 @@
+The following values were not passed to `accelerate launch` and had defaults used instead:
+	`--num_machines` was set to a value of `1`
+	`--dynamo_backend` was set to a value of `'no'`
+To avoid this warning pass in values for each of the problematic parameters or run `accelerate config`.
+/home/venky/dkarthik/miniconda3/envs/ekam/lib/python3.13/site-packages/accelerate/utils/launch.py:238: UserWarning: Port `29500` is already in use. Accelerate will attempt to launch in a standalone-like mode by finding an open port automatically for this session. If this current attempt fails, or for more control in future runs, please specify a different port (e.g., `--main_process_port <your_chosen_port>`) or use `--main_process_port 0` for automatic selection in your launch command or Accelerate config file.
+  warnings.warn(
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/home/venky/dkarthik/baselines/SiT/train.py", line 491, in <module>
+[rank1]:     main(args, loaded_state_dict)
+[rank1]:     ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/home/venky/dkarthik/baselines/SiT/train.py", line 106, in main
+[rank1]:     accelerator = Accelerator(
+[rank1]:         mixed_precision=args.mixed_precision,
+[rank1]:         log_with="wandb" if args.wandb else None
+[rank1]:     )
+[rank1]:   File "/home/venky/dkarthik/miniconda3/envs/ekam/lib/python3.13/site-packages/accelerate/accelerator.py", line 461, in __init__
+[rank1]:     self.state = AcceleratorState(
+[rank1]:                  ~~~~~~~~~~~~~~~~^
+[rank1]:         mixed_precision=mixed_precision,
+[rank1]:         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:     ...<7 lines>...
+[rank1]:         **kwargs,
+[rank1]:         ^^^^^^^^^
+[rank1]:     )
+[rank1]:     ^
+[rank1]:   File "/home/venky/dkarthik/miniconda3/envs/ekam/lib/python3.13/site-packages/accelerate/state.py", line 912, in __init__
+[rank1]:     PartialState(cpu, **kwargs)
+[rank1]:     ~~~~~~~~~~~~^^^^^^^^^^^^^^^
+[rank1]:   File "/home/venky/dkarthik/miniconda3/envs/ekam/lib/python3.13/site-packages/accelerate/state.py", line 301, in __init__
+[rank1]:     self.set_device()
+[rank1]:     ~~~~~~~~~~~~~~~^^
+[rank1]:   File "/home/venky/dkarthik/miniconda3/envs/ekam/lib/python3.13/site-packages/accelerate/state.py", line 838, in set_device
+[rank1]:     device_module.set_device(self.device)
+[rank1]:     ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+[rank1]:   File "/home/venky/dkarthik/miniconda3/envs/ekam/lib/python3.13/site-packages/torch/cuda/__init__.py", line 567, in set_device
+[rank1]:     torch._C._cuda_setDevice(device)
+[rank1]:     ~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+[rank1]: torch.AcceleratorError: CUDA error: CUDA-capable device(s) is/are busy or unavailable
+[rank1]: Search for `cudaErrorDevicesUnavailable' in https://docs.nvidia.com/cuda/cuda-runtime-api/group__CUDART__TYPES.html for more information.
+[rank1]: CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+[rank1]: For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+[rank1]: Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+[[34m2026-01-23 00:42:46[0m] Resuming experiment in existing directory: /home/venky/dkarthik/baselines/SiT/results/004-SiT-B-2-Linear-velocity-None
+W0123 00:42:47.247000 674668 site-packages/torch/distributed/elastic/multiprocessing/api.py:908] Sending process 674711 closing signal SIGTERM
+E0123 00:42:47.462000 674668 site-packages/torch/distributed/elastic/multiprocessing/api.py:882] failed (exitcode: 1) local_rank: 1 (pid: 674712) of binary: /home/venky/dkarthik/miniconda3/envs/ekam/bin/python
+Traceback (most recent call last):
+  File "/home/venky/dkarthik/miniconda3/envs/ekam/bin/accelerate", line 7, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/home/venky/dkarthik/miniconda3/envs/ekam/lib/python3.13/site-packages/accelerate/commands/accelerate_cli.py", line 50, in main
+    args.func(args)
+    ~~~~~~~~~^^^^^^
+  File "/home/venky/dkarthik/miniconda3/envs/ekam/lib/python3.13/site-packages/accelerate/commands/launch.py", line 1226, in launch_command
+    multi_gpu_launcher(args)
+    ~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/venky/dkarthik/miniconda3/envs/ekam/lib/python3.13/site-packages/accelerate/commands/launch.py", line 853, in multi_gpu_launcher
+    distrib_run.run(args)
+    ~~~~~~~~~~~~~~~^^^^^^
+  File "/home/venky/dkarthik/miniconda3/envs/ekam/lib/python3.13/site-packages/torch/distributed/run.py", line 927, in run
+    elastic_launch(
+    ~~~~~~~~~~~~~~~
+        config=config,
+        ~~~~~~~~~~~~~~
+        entrypoint=cmd,
+        ~~~~~~~~~~~~~~~
+    )(*cmd_args)
+    ~^^^^^^^^^^^
+  File "/home/venky/dkarthik/miniconda3/envs/ekam/lib/python3.13/site-packages/torch/distributed/launcher/api.py", line 156, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/home/venky/dkarthik/miniconda3/envs/ekam/lib/python3.13/site-packages/torch/distributed/launcher/api.py", line 293, in launch_agent
+    raise ChildFailedError(
+    ...<2 lines>...
+    )
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+train.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-01-23_00:42:47
+  host      : cn8.cds.iisc.in
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 674712)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

@@ -1,0 +1,3 @@
+Running on host: cn9
+Starting process: 0, seed=0, world_size=2.
+Starting process: 1, seed=1, world_size=2.

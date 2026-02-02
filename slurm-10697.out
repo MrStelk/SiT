@@ -1,0 +1,98 @@
+The following values were not passed to `accelerate launch` and had defaults used instead:
+	`--num_machines` was set to a value of `1`
+	`--mixed_precision` was set to a value of `'no'`
+	`--dynamo_backend` was set to a value of `'no'`
+To avoid this warning pass in values for each of the problematic parameters or run `accelerate config`.
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File "/home/venky/dkarthik/baselines/SiT/sample_batch.py", line 164, in <module>
+    parse_sde_args(parser) # Include both parsers so script doesn't crash on extra args
+    ~~~~~~~~~~~~~~^^^^^^^^
+  File "/home/venky/dkarthik/baselines/SiT/train_utils.py", line 24, in parse_sde_args
+    group.add_argument("--sampling-method", type=str, default="Euler", choices=["Euler", "Heun"])
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/venky/dkarthik/miniconda3/envs/ekam/lib/python3.13/argparse.py", line 1489, in add_argument
+    return self._add_action(action)
+           ~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/home/venky/dkarthik/miniconda3/envs/ekam/lib/python3.13/argparse.py", line 1696, in _add_action
+    action = super(_ArgumentGroup, self)._add_action(action)
+  File "/home/venky/dkarthik/miniconda3/envs/ekam/lib/python3.13/argparse.py", line 1503, in _add_action
+    self._check_conflict(action)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/home/venky/dkarthik/miniconda3/envs/ekam/lib/python3.13/argparse.py", line 1645, in _check_conflict
+    conflict_handler(action, confl_optionals)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/venky/dkarthik/miniconda3/envs/ekam/lib/python3.13/argparse.py", line 1654, in _handle_conflict_error
+    raise ArgumentError(action, message % conflict_string)
+argparse.ArgumentError: argument --sampling-method: conflicting option string: --sampling-method
+  File "/home/venky/dkarthik/baselines/SiT/sample_batch.py", line 164, in <module>
+    parse_sde_args(parser) # Include both parsers so script doesn't crash on extra args
+    ~~~~~~~~~~~~~~^^^^^^^^
+  File "/home/venky/dkarthik/baselines/SiT/train_utils.py", line 24, in parse_sde_args
+    group.add_argument("--sampling-method", type=str, default="Euler", choices=["Euler", "Heun"])
+    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/venky/dkarthik/miniconda3/envs/ekam/lib/python3.13/argparse.py", line 1489, in add_argument
+    return self._add_action(action)
+           ~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/home/venky/dkarthik/miniconda3/envs/ekam/lib/python3.13/argparse.py", line 1696, in _add_action
+    action = super(_ArgumentGroup, self)._add_action(action)
+  File "/home/venky/dkarthik/miniconda3/envs/ekam/lib/python3.13/argparse.py", line 1503, in _add_action
+    self._check_conflict(action)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^
+  File "/home/venky/dkarthik/miniconda3/envs/ekam/lib/python3.13/argparse.py", line 1645, in _check_conflict
+    conflict_handler(action, confl_optionals)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/venky/dkarthik/miniconda3/envs/ekam/lib/python3.13/argparse.py", line 1654, in _handle_conflict_error
+    raise ArgumentError(action, message % conflict_string)
+argparse.ArgumentError: argument --sampling-method: conflicting option string: --sampling-method
+E0116 15:36:04.246000 2293087 site-packages/torch/distributed/elastic/multiprocessing/api.py:882] failed (exitcode: 1) local_rank: 0 (pid: 2293118) of binary: /home/venky/dkarthik/miniconda3/envs/ekam/bin/python
+Traceback (most recent call last):
+  File "/home/venky/dkarthik/miniconda3/envs/ekam/bin/accelerate", line 7, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/home/venky/dkarthik/miniconda3/envs/ekam/lib/python3.13/site-packages/accelerate/commands/accelerate_cli.py", line 50, in main
+    args.func(args)
+    ~~~~~~~~~^^^^^^
+  File "/home/venky/dkarthik/miniconda3/envs/ekam/lib/python3.13/site-packages/accelerate/commands/launch.py", line 1226, in launch_command
+    multi_gpu_launcher(args)
+    ~~~~~~~~~~~~~~~~~~^^^^^^
+  File "/home/venky/dkarthik/miniconda3/envs/ekam/lib/python3.13/site-packages/accelerate/commands/launch.py", line 853, in multi_gpu_launcher
+    distrib_run.run(args)
+    ~~~~~~~~~~~~~~~^^^^^^
+  File "/home/venky/dkarthik/miniconda3/envs/ekam/lib/python3.13/site-packages/torch/distributed/run.py", line 927, in run
+    elastic_launch(
+    ~~~~~~~~~~~~~~~
+        config=config,
+        ~~~~~~~~~~~~~~
+        entrypoint=cmd,
+        ~~~~~~~~~~~~~~~
+    )(*cmd_args)
+    ~^^^^^^^^^^^
+  File "/home/venky/dkarthik/miniconda3/envs/ekam/lib/python3.13/site-packages/torch/distributed/launcher/api.py", line 156, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/home/venky/dkarthik/miniconda3/envs/ekam/lib/python3.13/site-packages/torch/distributed/launcher/api.py", line 293, in launch_agent
+    raise ChildFailedError(
+    ...<2 lines>...
+    )
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+sample_batch.py FAILED
+------------------------------------------------------------
+Failures:
+[1]:
+  time      : 2026-01-16_15:36:04
+  host      : cn7.cds.iisc.in
+  rank      : 1 (local_rank: 1)
+  exitcode  : 1 (pid: 2293119)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-01-16_15:36:04
+  host      : cn7.cds.iisc.in
+  rank      : 0 (local_rank: 0)
+  exitcode  : 1 (pid: 2293118)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================

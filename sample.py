@@ -20,6 +20,7 @@ from time import time
 
 def main(mode, args):
     # Setup PyTorch:
+    print("Setting up...")
     torch.manual_seed(args.seed)
     torch.set_grad_enabled(False)
     device = "cuda" if torch.cuda.is_available() else "cpu"
@@ -31,7 +32,7 @@ def main(mode, args):
         assert args.image_size == 256, "512x512 models are not yet available for auto-download." # remove this line when 512x512 models are available
         learn_sigma = args.image_size == 256
     else:
-        learn_sigma = False
+        learn_sigma = True
 
     # Load model:
     latent_size = args.image_size // 8
@@ -40,10 +41,12 @@ def main(mode, args):
         num_classes=args.num_classes,
         learn_sigma=learn_sigma,
     ).to(device)
+    print(args.model)
     # Auto-download a pre-trained model or load a custom SiT checkpoint from train.py:
     ckpt_path = args.ckpt or f"SiT-XL-2-{args.image_size}x{args.image_size}.pt"
-    state_dict = find_model(ckpt_path)
+    state_dict = find_model(ckpt_path,sample=True)
     model.load_state_dict(state_dict)
+    print("Loaded Model")
     model.eval()  # important!
     transport = create_transport(
         args.path_type,
@@ -85,16 +88,18 @@ def main(mode, args):
     vae = AutoencoderKL.from_pretrained(f"stabilityai/sd-vae-ft-{args.vae}").to(device)
 
     # Labels to condition the model with (feel free to change):
-    class_labels = [207, 360, 387, 974, 88, 979, 417, 279]
+    # sample.py
+    class_labels = torch.randint(args.num_classes, (8,))
+    # class_labels = [0, 10, 20, 30, 40, 50, 60, 70]
     
     # Create sampling noise:
     n = len(class_labels)
-    z = torch.randn(n, 4, latent_size, latent_size, device=device)
+    z = torch.randn(n, 4, latent_size, latent_size, device=device)+0.5
     y = torch.tensor(class_labels, device=device)
 
     # Setup classifier-free guidance:
     z = torch.cat([z, z], 0)
-    y_null = torch.tensor([1000] * n, device=device)
+    y_null = torch.tensor([args.num_classes] * n, device=device)
     y = torch.cat([y, y_null], 0)
     model_kwargs = dict(y=y, cfg_scale=args.cfg_scale)
 
@@ -106,7 +111,7 @@ def main(mode, args):
     print(f"Sampling took {time() - start_time:.2f} seconds.")
 
     # Save and display images:
-    save_image(samples, "sample.png", nrow=4, normalize=True, value_range=(-1, 1))
+    save_image(samples, args.name, nrow=4, normalize=True, value_range=(-1, 1))
 
 
 if __name__ == "__main__":
@@ -128,6 +133,7 @@ if __name__ == "__main__":
     parser.add_argument("--cfg-scale", type=float, default=4.0)
     parser.add_argument("--num-sampling-steps", type=int, default=250)
     parser.add_argument("--seed", type=int, default=0)
+    parser.add_argument("--name", type=str, default="sample.png")
     parser.add_argument("--ckpt", type=str, default=None,
                         help="Optional path to a SiT checkpoint (default: auto-download a pre-trained SiT-XL/2 model).")
 
@@ -141,4 +147,5 @@ if __name__ == "__main__":
         # Further processing for SDE
     
     args = parser.parse_known_args()[0]
+    print("args parsed")
     main(mode, args)
