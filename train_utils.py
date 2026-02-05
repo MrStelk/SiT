@@ -5,7 +5,7 @@ def none_or_str(value):
 
 def parse_transport_args(parser):
     group = parser.add_argument_group("Transport arguments")
-    group.add_argument("--path-type", type=str, default="Linear", choices=["Linear", "GVP", "VP"])
+    group.add_argument("--path-type", type=str, default="Linear", choices=["Linear", "GVP", "VP", "LNUV"])
     group.add_argument("--prediction", type=str, default="velocity", choices=["velocity", "score", "noise"])
     group.add_argument("--loss-weight", type=none_or_str, default=None, choices=[None, "velocity", "likelihood"])
     group.add_argument("--sample-eps", type=float)

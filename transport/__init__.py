@@ -37,6 +37,7 @@ def create_transport(
         "Linear": PathType.LINEAR,
         "GVP": PathType.GVP,
         "VP": PathType.VP,
+        "LNUV": PathType.LNUV
     }
 
     path_type = path_choice[path_type]
@@ -49,7 +50,7 @@ def create_transport(
         train_eps_new = 1e-3 if train_eps is None else train_eps
         sample_eps_new = 1e-3 if train_eps is None else sample_eps
         train_eps, sample_eps = train_eps_new, sample_eps_new
-    else: # velocity & [GVP, LINEAR] is stable everywhere
+    else: # velocity & [GVP, LINEAR, LNUV] is stable everywhere
         train_eps = 0
         sample_eps = 0
     

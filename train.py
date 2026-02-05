@@ -247,7 +247,10 @@ def main(args, loaded_state_dict=None):
         ])
         full_dataset = ImageFolder(args.data_path, transform=transform)
     
-    mapping_path = os.path.join(experiment_dir, "class_labels.json")
+    if experiment_dir is not None:
+        mapping_path = os.path.join(experiment_dir, "class_labels.json")
+    else:
+        mapping_path = None
     if args.ckpt and os.path.exists(mapping_path):
         if accelerator.is_main_process:
             logger.info(f"Loading class labels from {mapping_path}")

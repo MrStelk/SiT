@@ -25,6 +25,7 @@ class PathType(enum.Enum):
     LINEAR = enum.auto()
     GVP = enum.auto()
     VP = enum.auto()
+    LNUV = enum.auto()
 
 class WeightType(enum.Enum):
     """
@@ -51,6 +52,7 @@ class Transport:
             PathType.LINEAR: path.ICPlan,
             PathType.GVP: path.GVPCPlan,
             PathType.VP: path.VPCPlan,
+            PathType.LNUV: path.LNUVPlan
         }
 
         self.loss_type = loss_type

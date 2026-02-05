@@ -1,10 +1,10 @@
 #!/bin/bash
-#SBATCH --job-name=SiTS2_cn7
+#SBATCH --job-name=SiTS2_cn8_LNUV
 #SBATCH --output=logs/%x_%j.log
 #SBATCH --error=logs/%x_%j.err
 #SBATCH --time=48:00:00
 #SBATCH --partition=ada
-#SBATCH --nodelist=cn7          # <--- FORCES JOB TO RUN ON CN9
+#SBATCH --nodelist=cn8          # <--- FORCES JOB TO RUN ON CN9
 #SBATCH --nodes=1
 #SBATCH --ntasks-per-node=1
 #SBATCH --cpus-per-task=18
@@ -37,5 +37,4 @@ accelerate launch --multi_gpu --num_processes 2 --mixed_precision bf16 train.py 
     --num-classes 100 \
     --wandb \
     --ckpt-every 15000 \
-    --num-workers 8 \
-    --ckpt /home/venky/dkarthik/baselines/SiT/results/004-SiT-S-2-Linear-velocity-None/checkpoints/276_0105000.pt
+    --num-workers 8

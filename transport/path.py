@@ -1,6 +1,7 @@
 import torch as th
 import numpy as np
 from functools import partial
+from .velocity import VelocityScale
 
 def expand_t_like_x(t, x):
     """Function to reshape time t to broadcastable dimension of x
@@ -135,6 +136,24 @@ class ICPlan:
         ut = self.compute_ut(t, x0, x1, xt)
         return t, xt, ut
     
+
+class LNUVPlan(ICPlan):
+    """class for linear-non-uniform-velocity interpolant"""
+    def __init__(self, sigma=0.0):
+        self.sigma = sigma
+        self.vel_func = VelocityScale()
+
+    def compute_alpha_t(self, t):
+        """Compute the data coefficient along the path"""
+        return self.vel_func(t), self.vel_func.der(t)
+    
+    def compute_sigma_t(self, t):
+        """Compute the noise coefficient along the path"""
+        return 1 - self.vel_func(t), -self.vel_func.der(t)
+    
+    def compute_d_alpha_alpha_ratio_t(self, t):
+        """Compute the ratio between d_alpha and alpha"""
+        return self.vel_func.der(t) / self.vel_func(t)
 
 class VPCPlan(ICPlan):
     """class for VP path flow matching"""

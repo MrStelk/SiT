@@ -20,6 +20,8 @@ from time import time
 
 def main(mode, args):
     # Setup PyTorch:
+    if args.intermediates is not None and args.intermediates < args.num_sampling_steps:
+        print(f"cannot have intermediates{args.intermediates} more than function evaluations:{args.num_steps}")
     print("Setting up...")
     torch.manual_seed(args.seed)
     torch.set_grad_enabled(False)
@@ -71,7 +73,7 @@ def main(mode, args):
                 num_steps=args.num_sampling_steps,
                 atol=args.atol,
                 rtol=args.rtol,
-                reverse=args.reverse
+                reverse=args.reverse,
             )
             
     elif mode == "SDE":
@@ -89,7 +91,7 @@ def main(mode, args):
 
     # Labels to condition the model with (feel free to change):
     # sample.py
-    class_labels = torch.randint(args.num_classes, (8,))
+    class_labels = torch.randint(args.num_classes, (args.num_samples))
     # class_labels = [0, 10, 20, 30, 40, 50, 60, 70]
     
     # Create sampling noise:
@@ -105,14 +107,26 @@ def main(mode, args):
 
     # Sample images:
     start_time = time()
-    samples = sample_fn(z, model.forward_with_cfg, **model_kwargs)[-1]
+    all_samples = sample_fn(z, model.forward_with_cfg, **model_kwargs)
+    samples = all_samples[-1]
     samples, _ = samples.chunk(2, dim=0)  # Remove null class samples
     samples = vae.decode(samples / 0.18215).sample
+
+    if args.intermediates:
+        stride = args.num_sampling_steps//args.intermediates
+        intermediate_samples = all_samples[::stride]
+        intermediates = intermediate_samples.chunk(2,dim=1)
+        intermediates = intermediates.reshape(-1, 4, latent_size, latent_size)
+        intermediates = vae.decode(intermediates/0.18215).sample
+        intermediates = intermediates.reshape(args.intermediates, args.num_samples, 3,args.image_size, args.image_size)
     print(f"Sampling took {time() - start_time:.2f} seconds.")
 
     # Save and display images:
     save_image(samples, args.name, nrow=4, normalize=True, value_range=(-1, 1))
-
+    if args.intermediates:
+        name = args.name.split(".")[0]
+        for i,img in enumerate(intermediates):
+            save_image(img, +"name_{i}", nrow=4, normalize=True, value_range=(-1, 1))
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -136,6 +150,8 @@ if __name__ == "__main__":
     parser.add_argument("--name", type=str, default="sample.png")
     parser.add_argument("--ckpt", type=str, default=None,
                         help="Optional path to a SiT checkpoint (default: auto-download a pre-trained SiT-XL/2 model).")
+    parser.add_argument("-num-samples", type=int, default=8)
+    parser.add_argument("--intermediates", type=int, default=None)
 
 
     parse_transport_args(parser)
@@ -145,7 +161,6 @@ if __name__ == "__main__":
     elif mode == "SDE":
         parse_sde_args(parser)
         # Further processing for SDE
-    
     args = parser.parse_known_args()[0]
     print("args parsed")
     main(mode, args)
