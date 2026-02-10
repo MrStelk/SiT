@@ -16,7 +16,51 @@ from transport import create_transport, Sampler
 import argparse
 import sys
 from time import time
+from PIL import Image
+import numpy as np
+from torchvision import transforms
 
+def split_grid(pil_image, image_size):
+    w, h = pil_image.size
+    
+    # Case 1: Perfect Grid (No padding)
+    if w % image_size == 0 and h % image_size == 0:
+        padding = 0
+        cols = w // image_size
+        rows = h // image_size
+        
+    # Case 2: Saved Grid (Has padding, usually 2px)
+    # Formula: W = cols * size + (cols + 1) * padding
+    # Solving for cols: cols = (W - padding) / (size + padding)
+    else:
+        padding = 2 # Standard save_image padding
+        # Check if this padding theory fits width
+        if (w - padding) % (image_size + padding) == 0:
+            cols = (w - padding) // (image_size + padding)
+            rows = (h - padding) // (image_size + padding)
+        else:
+            # Case 3: Just a random image -> Treat as single crop
+            print(f"Warning: Input image size ({w}x{h}) does not match grid logic. Treating as single image.")
+            return [center_crop_arr(pil_image, image_size)], 1, 1
+
+    print(f"Detected Grid: {rows}x{cols} with padding={padding}")
+    
+    images = []
+    for r in range(rows):
+        for c in range(cols):
+            # Calculate coordinates with padding
+            x_start = padding + c * (image_size + padding)
+            y_start = padding + r * (image_size + padding)
+            
+            crop = pil_image.crop((
+                x_start,
+                y_start,
+                x_start + image_size,
+                y_start + image_size
+            ))
+            images.append(crop)
+            
+    return images, rows, cols
 
 def main(mode, args):
     # Setup PyTorch:
@@ -74,8 +118,7 @@ def main(mode, args):
                 atol=args.atol,
                 rtol=args.rtol,
                 reverse=args.reverse,
-            )
-            
+            )            
     elif mode == "SDE":
         sample_fn = sampler.sample_sde(
             sampling_method=args.sampling_method,
@@ -86,19 +129,34 @@ def main(mode, args):
             num_steps=args.num_sampling_steps,
         )
     
-
     vae = AutoencoderKL.from_pretrained(f"stabilityai/sd-vae-ft-{args.vae}").to(device)
 
-    # Labels to condition the model with (feel free to change):
-    # sample.py
-    class_labels = torch.randint(args.num_classes, (args.num_samples,))
-    # class_labels = [0, 10, 20, 30, 40, 50, 60, 70]
-    
-    # Create sampling noise:
-    n = len(class_labels)
-    z = torch.randn(n, 4, latent_size, latent_size, device=device)
-    y = torch.tensor(class_labels, device=device)
+    if args.input_img:
+        transform = transforms.Compose([            
+            transforms.ToTensor(),
+            transforms.Normalize(mean=[0.5]*3, std=[0.5]*3, inplace=True),
+        ])
 
+        grid = Image.open(args.input_img).convert("RGB")
+        tiles, rows, cols = split_grid(grid, args.image_size)
+
+        imgs = torch.stack(
+            [transform(im) for im in tiles],
+            dim=0
+        ).to(device)
+
+        with torch.no_grad():
+            z = vae.encode(imgs).latent_dist.mode().mul_(0.18215)
+        class_labels = torch.tensor([args.num_classes] * z.shape[0])
+        n = len(class_labels)
+        y = torch.tensor(class_labels, device=device)
+    else:
+        class_labels = torch.randint(args.num_classes, (args.num_samples,))
+        # class_labels = torch.randint(1, (args.num_samples,))
+        n = len(class_labels)
+        z = torch.randn(n, 4, latent_size, latent_size, device=device)
+        y = torch.tensor(class_labels, device=device)
+    
     # Setup classifier-free guidance:
     z = torch.cat([z, z], 0)
     y_null = torch.tensor([args.num_classes] * n, device=device)
@@ -119,16 +177,24 @@ def main(mode, args):
         intermediates, _ = intermediate_samples.chunk(2,dim=1)
         intermediates = intermediates.reshape(-1, 4, latent_size, latent_size)
         with torch.no_grad():
-            intermediates = vae.decode(intermediates/0.18215).sample
+            intermediates = vae.decode(intermediates/0.18215).sample    
     print(f"Sampling took {time() - start_time:.2f} seconds.")
 
     # Save and display images:
     if args.intermediates:
-        process_name = args.name.replace(".png", "_intermediates.png")
-        save_image(intermediates, process_name, nrow=args.num_samples, normalize=True, value_range=(-1, 1))
+        if args.input_img:
+            process_name = args.input_img.replace(".png", "_inverted_intermediates.png")
+        else:
+            process_name = args.name.replace(".png", "_intermediates.png")
+        save_image(intermediates, process_name, nrow=n, normalize=True, value_range=(-1, 1))
         print(f"Saved intermediates to {process_name}")
-    save_image(samples, args.name, nrow=4, normalize=True, value_range=(-1, 1))
-    print(f"Saved final image to {args.name}")
+    if args.input_img:
+        name = args.input_img.replace(".png", "_inverted.png")
+        save_image(samples, name, nrow=cols, normalize=True, value_range=(-1, 1))
+        print(f"Saved final image to {name}")
+    else:
+        save_image(samples, args.name, nrow=4, normalize=True, value_range=(-1, 1))
+        print(f"Saved final image to {args.name}")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -152,9 +218,22 @@ if __name__ == "__main__":
     parser.add_argument("--name", type=str, default="sample.png")
     parser.add_argument("--ckpt", type=str, default=None,
                         help="Optional path to a SiT checkpoint (default: auto-download a pre-trained SiT-XL/2 model).")
-    parser.add_argument("-num-samples", type=int, default=8)
     parser.add_argument("--intermediates", type=int, default=None)
 
+    group = parser.add_mutually_exclusive_group(required=True)
+    group.add_argument(
+        "--num-samples",
+        type=int,
+        default=None,
+        help="Number of samples to generate (generation mode)"
+    )
+
+    group.add_argument(
+        "--input-img",
+        type=str,
+        default=None,
+        help="Path to a grid image (inversion mode)"
+    )
 
     parse_transport_args(parser)
     if mode == "ODE":
