@@ -1,7 +1,7 @@
 import torch
 
 class VelocityScale:
-    def __init__(self, n=1.0):
+    def __init__(self, n=2.5):
         self.n = float(n)
 
     def __call__(self, t):

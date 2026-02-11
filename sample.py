@@ -20,6 +20,25 @@ from PIL import Image
 import numpy as np
 from torchvision import transforms
 
+def center_crop_arr(pil_image, image_size):
+    """
+    Center cropping implementation from ADM.
+    """
+    while min(*pil_image.size) >= 2 * image_size:
+        pil_image = pil_image.resize(
+            tuple(x // 2 for x in pil_image.size), resample=Image.BOX
+        )
+
+    scale = image_size / min(*pil_image.size)
+    pil_image = pil_image.resize(
+        tuple(round(x * scale) for x in pil_image.size), resample=Image.BICUBIC
+    )
+
+    arr = np.array(pil_image)
+    crop_y = (arr.shape[0] - image_size) // 2
+    crop_x = (arr.shape[1] - image_size) // 2
+    return Image.fromarray(arr[crop_y: crop_y + image_size, crop_x: crop_x + image_size])
+
 def split_grid(pil_image, image_size):
     w, h = pil_image.size
     
@@ -147,16 +166,18 @@ def main(mode, args):
 
         with torch.no_grad():
             z = vae.encode(imgs).latent_dist.mode().mul_(0.18215)
+        
         class_labels = torch.tensor([args.num_classes] * z.shape[0])
-        n = len(class_labels)
-        y = torch.tensor(class_labels, device=device)
+    elif args.input_latent:
+        z = torch.load(args.input_latent, map_location=device)
+        class_labels = torch.tensor([args.num_classes] * z.shape[0])        
     else:
         class_labels = torch.randint(args.num_classes, (args.num_samples,))
         # class_labels = torch.randint(1, (args.num_samples,))
-        n = len(class_labels)
-        z = torch.randn(n, 4, latent_size, latent_size, device=device)
-        y = torch.tensor(class_labels, device=device)
-    
+        z = torch.randn(len(class_labels), 4, latent_size, latent_size, device=device)
+
+    n = len(class_labels)    
+    y = torch.tensor(class_labels, device=device)
     # Setup classifier-free guidance:
     z = torch.cat([z, z], 0)
     y_null = torch.tensor([args.num_classes] * n, device=device)
@@ -168,7 +189,12 @@ def main(mode, args):
     all_samples = sample_fn(z, model.forward_with_cfg, **model_kwargs)
     samples = all_samples[-1]
     samples, _ = samples.chunk(2, dim=0)  # Remove null class samples
+    if args.input_img:
+        latent_name = args.input_img.replace(".png", "_inverted.pt")
+        torch.save(samples, latent_name)
+        print(f"Saved latent to {latent_name}")
     with torch.no_grad():
+        #print(f"generated image: {samples}")
         samples = vae.decode(samples / 0.18215).sample
     
     if args.intermediates:
@@ -188,10 +214,15 @@ def main(mode, args):
             process_name = args.name.replace(".png", "_intermediates.png")
         save_image(intermediates, process_name, nrow=n, normalize=True, value_range=(-1, 1))
         print(f"Saved intermediates to {process_name}")
+    
     if args.input_img:
         name = args.input_img.replace(".png", "_inverted.png")
         save_image(samples, name, nrow=cols, normalize=True, value_range=(-1, 1))
-        print(f"Saved final image to {name}")
+        print(f"Saved latent image to {name}")
+    elif args.input_latent:
+        name = args.input_latent.replace(".pt", "_reconstruction.png")
+        save_image(samples, name, nrow=4, normalize=True, value_range=(-1, 1))
+        print(f"Saved final image reconstruction to {name}")
     else:
         save_image(samples, args.name, nrow=4, normalize=True, value_range=(-1, 1))
         print(f"Saved final image to {args.name}")
@@ -234,6 +265,12 @@ if __name__ == "__main__":
         default=None,
         help="Path to a grid image (inversion mode)"
     )
+    group.add_argument(
+        "--input-latent",
+        type=str,
+        default=None,
+        help="Path to a VAE latent to start flow"
+    )
 
     parse_transport_args(parser)
     if mode == "ODE":
@@ -243,5 +280,7 @@ if __name__ == "__main__":
         parse_sde_args(parser)
         # Further processing for SDE
     args = parser.parse_known_args()[0]
+    if args.input_img:
+        args.reverse = True
     print("args parsed")
     main(mode, args)

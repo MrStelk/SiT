@@ -18,7 +18,7 @@ conda activate ekam
 
 export WANDB_API_KEY="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"
 export ENTITY="karthikndasaraju-indian-institute-of-science"
-export PROJECT="SiT-S-2-ImageNet100"
+export PROJECT="SiT-S-2-LNUV-ImageNet100"
 
 export WANDB_INIT_TIMEOUT=300
 
@@ -37,4 +37,5 @@ accelerate launch --multi_gpu --num_processes 2 --mixed_precision bf16 train.py 
     --num-classes 100 \
     --wandb \
     --ckpt-every 15000 \
-    --num-workers 8
+    --num-workers 8 \
+    --path-type "LNUV"

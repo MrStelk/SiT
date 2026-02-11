@@ -1,0 +1,3 @@
+Running on host: cn8.cds.iisc.in
+Starting process: 0, seed=0, world_size=2. Local BS=475
+Starting process: 1, seed=1, world_size=2. Local BS=475
